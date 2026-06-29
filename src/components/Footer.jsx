@@ -8,7 +8,7 @@ import {
 const QUICK = [
   { href:'#home', label:'Home' }, { href:'#about', label:'About' },
   { href:'#services', label:'Services' }, { href:'#pricing', label:'Pricing' },
-  { href:'#portfolio', label:'Portfolio' }, { href:'#contact', label:'Contact' },
+  { href:'#contact', label:'Contact' },
 ]
 const SERVICES = ['Web Development','E-Commerce','Cloud Solutions','UI/UX Design','SEO Optimization','API Integration']
 const SOCIAL = [

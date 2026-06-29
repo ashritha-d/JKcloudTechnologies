@@ -8,9 +8,8 @@ import Services from './components/Services'
 import Pricing from './components/Pricing'
 import WhyUs from './components/WhyUs'
 import Process from './components/Process'
-import Portfolio from './components/Portfolio'
 import Testimonials from './components/Testimonials'
-import FAQ from './components/FAQ'
+import CTABanner from './components/CTABanner'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import FloatingButtons from './components/FloatingButtons'
@@ -47,9 +46,8 @@ export default function App() {
         <Pricing />
         <WhyUs />
         <Process />
-        <Portfolio />
         <Testimonials />
-        <FAQ />
+        <CTABanner />
         <Contact />
         <Footer />
         <FloatingButtons />
