@@ -6,16 +6,16 @@ import {
 } from 'react-icons/fa6'
 import useCounter from '../hooks/useCounter'
 
-// RADIUS must match SVG circle r value below (both 130)
-const RADIUS = 130
+// RADIUS must match SVG circle r value below
+const RADIUS = 115
 const SVG_SIZE = 420
 
 const BADGES = [
-  { icon: FaLaptopCode,   label: 'Web\nDevelopment',   color: '#3b82f6', bg: '#eff6ff', angle: -50 },
-  { icon: FaCloud,        label: 'Cloud\nSolutions',    color: '#7c3aed', bg: '#f5f3ff', angle:  25 },
-  { icon: FaMobileScreen, label: 'Mobile\nDevelopment', color: '#f59e0b', bg: '#fffbeb', angle: 110 },
-  { icon: FaBullhorn,     label: 'Digital\nMarketing',  color: '#10b981', bg: '#f0fdf4', angle: 210 },
-  { icon: FaPaintbrush,   label: 'UI/UX\nDesign',       color: '#ec4899', bg: '#fdf2f8', angle: 270 },
+  { icon: FaPaintbrush,   label: 'UI/UX\nDesign',       color: '#ec4899', bg: '#fdf2f8', angle: -100 },
+  { icon: FaLaptopCode,   label: 'Web\nDevelopment',     color: '#3b82f6', bg: '#eff6ff', angle: -30 },
+  { icon: FaCloud,        label: 'Cloud\nSolutions',     color: '#7c3aed', bg: '#f5f3ff', angle:  40  },
+  { icon: FaMobileScreen, label: 'Mobile\nDevelopment',  color: '#f59e0b', bg: '#fffbeb', angle: 120 },
+  { icon: FaBullhorn,     label: 'Digital\nMarketing',   color: '#10b981', bg: '#f0fdf4', angle: 210 },
 ]
 
 function StatItem({ count, suffix, label, icon }) {
@@ -40,7 +40,7 @@ function StatItem({ count, suffix, label, icon }) {
 
 export default function Hero() {
   return (
-    <section id="home" className="bg-white py-12 lg:py-20 overflow-hidden">
+    <section id="home" className="bg-white py-12 lg:py-20">
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
 
@@ -109,7 +109,6 @@ export default function Hero() {
                 viewBox={`0 0 ${SVG_SIZE} ${SVG_SIZE}`}
                 overflow="visible"
               >
-                {/* Dashed orbit ring — same radius as RADIUS constant */}
                 <circle
                   cx={SVG_SIZE / 2} cy={SVG_SIZE / 2} r={RADIUS}
                   fill="none" stroke="#e2e8f0" strokeWidth="1.5" strokeDasharray="6 5"

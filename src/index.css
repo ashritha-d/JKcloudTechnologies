@@ -4,7 +4,7 @@
 
 @layer base {
   html { scroll-behavior: smooth; scroll-padding-top: 80px; }
-  body { font-family: 'Poppins', sans-serif; overflow-x: hidden; }
+  body { font-family: 'Poppins', sans-serif; overflow-x: clip; }
   * { box-sizing: border-box; }
 
   ::-webkit-scrollbar { width: 6px; }
