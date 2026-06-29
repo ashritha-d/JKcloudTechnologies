@@ -13,8 +13,8 @@ const SVG_SIZE = 420
 const BADGES = [
   { icon: FaLaptopCode,   label: 'Web\nDevelopment',   color: '#3b82f6', bg: '#eff6ff', angle: -50 },
   { icon: FaCloud,        label: 'Cloud\nSolutions',    color: '#7c3aed', bg: '#f5f3ff', angle:  25 },
-  { icon: FaMobileScreen, label: 'Mobile\nDev',         color: '#f59e0b', bg: '#fffbeb', angle: 110 },
-  { icon: FaBullhorn,     label: 'Digital\nMarketing',  color: '#10b981', bg: '#f0fdf4', angle: 200 },
+  { icon: FaMobileScreen, label: 'Mobile\nDevelopment', color: '#f59e0b', bg: '#fffbeb', angle: 110 },
+  { icon: FaBullhorn,     label: 'Digital\nMarketing',  color: '#10b981', bg: '#f0fdf4', angle: 210 },
   { icon: FaPaintbrush,   label: 'UI/UX\nDesign',       color: '#ec4899', bg: '#fdf2f8', angle: 270 },
 ]
 
@@ -99,12 +99,9 @@ export default function Hero() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="flex items-center justify-center"
+            style={{ overflow: 'visible' }}
           >
-            {/*
-              Outer wrapper is intentionally wider/taller than the SVG box
-              so badges that sit at the circle edge have room without clipping.
-            */}
-            <div className="relative" style={{ width: '420px', height: '420px' }}>
+            <div className="relative" style={{ width: '420px', height: '420px', overflow: 'visible' }}>
 
               {/* SVG: dashed circle + connector lines */}
               <svg
@@ -157,7 +154,6 @@ export default function Hero() {
                       left: `${leftPct}%`,
                       top:  `${topPct}%`,
                       transform: 'translate(-50%, -50%)',
-                      whiteSpace: 'nowrap',
                     }}
                   >
                     <div
