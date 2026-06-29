@@ -85,7 +85,7 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="flex items-center justify-center"
+            className="hidden lg:flex items-center justify-center"
           >
             <div className="relative">
               <div className="w-72 h-72 lg:w-80 lg:h-80 rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
@@ -135,7 +135,7 @@ export default function About() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="rounded-3xl p-8 flex flex-col justify-around"
+            className="hidden lg:flex rounded-3xl p-8 flex-col justify-around"
             style={{ background: 'linear-gradient(135deg, #0f172a, #1e1b4b)' }}
           >
             <div className="mb-6">
