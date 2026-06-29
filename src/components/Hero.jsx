@@ -6,23 +6,28 @@ import {
 } from 'react-icons/fa6'
 import useCounter from '../hooks/useCounter'
 
-const SVG_SIZE = 420
-const RADIUS   = 155   // orbit radius in SVG units
+// Two radii: orbit ring is decorative, badges sit outside it
+const ORBIT_R    = 125   // dashed circle (decorative, smaller)
+const BADGE_R    = 175   // badge center positions (outside the orbit ring)
+const SVG_SIZE   = 460   // container size
 
-// Angles: 0=right, 90=down, 180=left, 270=up (screen coords)
+// Angles — 0=right, 90=down, 180=left, 270=up (screen coords)
+//   Web Dev top-left   Cloud top-right
+//       Mobile left        Digital right
+//              UI/UX bottom
 const BADGES = [
   { icon: FaLaptopCode,   label: 'Web\nDevelopment',   color: '#3b82f6', bg: '#eff6ff', angle: 225 },
   { icon: FaCloud,        label: 'Cloud\nSolutions',    color: '#7c3aed', bg: '#f5f3ff', angle: 315 },
-  { icon: FaBullhorn,     label: 'Digital\nMarketing',  color: '#10b981', bg: '#f0fdf4', angle:  15 },
+  { icon: FaBullhorn,     label: 'Digital\nMarketing',  color: '#10b981', bg: '#f0fdf4', angle:  20 },
   { icon: FaPaintbrush,   label: 'UI/UX\nDesign',       color: '#ec4899', bg: '#fdf2f8', angle:  90 },
-  { icon: FaMobileScreen, label: 'Mobile\nDevelopment', color: '#f59e0b', bg: '#fffbeb', angle: 170 },
+  { icon: FaMobileScreen, label: 'Mobile\nDev',         color: '#f59e0b', bg: '#fffbeb', angle: 165 },
 ]
 
 function badgePos(angle) {
   const rad = angle * Math.PI / 180
   return {
-    left: ((SVG_SIZE / 2 + Math.cos(rad) * RADIUS) / SVG_SIZE) * 100,
-    top:  ((SVG_SIZE / 2 + Math.sin(rad) * RADIUS) / SVG_SIZE) * 100,
+    left: ((SVG_SIZE / 2 + Math.cos(rad) * BADGE_R) / SVG_SIZE) * 100,
+    top:  ((SVG_SIZE / 2 + Math.sin(rad) * BADGE_R) / SVG_SIZE) * 100,
   }
 }
 
@@ -48,34 +53,34 @@ function StatItem({ count, suffix, label, icon }) {
 
 export default function Hero() {
   return (
-    <section id="home" className="bg-white py-12 lg:py-20">
+    <section id="home" className="bg-white py-10 lg:py-16">
       <div className="container mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-10 items-center">
 
-          {/* ── Left column ── */}
+          {/* ── Left ── */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="flex items-center gap-2 mb-6">
+            <div className="flex items-center gap-2 mb-5">
               <span className="w-2 h-2 rounded-full bg-primary-500 animate-pulse" />
               <span className="text-xs font-bold text-slate-500 tracking-[3px] uppercase">
                 Innovate • Build • Grow
               </span>
             </div>
 
-            <h1 className="text-5xl lg:text-6xl font-black text-slate-900 leading-[1.1] mb-6">
+            <h1 className="text-4xl lg:text-5xl xl:text-6xl font-black text-slate-900 leading-[1.1] mb-5">
               Digital Solutions<br />
               <span className="gradient-text">That Drive Growth</span>
             </h1>
 
-            <p className="text-slate-500 text-lg leading-relaxed mb-10 max-w-lg">
+            <p className="text-slate-500 text-lg leading-relaxed mb-8 max-w-lg">
               We help businesses transform ideas into powerful digital experiences
               with cutting-edge technology and innovative solutions.
             </p>
 
-            <div className="flex flex-wrap gap-4 mb-12">
+            <div className="flex flex-wrap gap-4 mb-10">
               <motion.a href="#services" whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }} className="btn-primary">
                 Explore Services <FaArrowRight className="text-sm" />
               </motion.a>
@@ -86,15 +91,15 @@ export default function Hero() {
 
             <div className="flex flex-wrap gap-8 pt-8 border-t border-slate-100">
               {[
-                { count: 150, suffix: '+', label: 'Projects Completed',  icon: '🏆' },
-                { count: 98,  suffix: '%', label: 'Client Satisfaction', icon: '❤️' },
-                { count: 50,  suffix: '+', label: 'Happy Clients',       icon: '👥' },
-                { count: 5,   suffix: '+', label: 'Years Experience',    icon: '🚀' },
+                { count: 150, suffix: '+', label: 'Projects Done',      icon: '🏆' },
+                { count: 98,  suffix: '%', label: 'Satisfaction',       icon: '❤️' },
+                { count: 50,  suffix: '+', label: 'Happy Clients',      icon: '👥' },
+                { count: 5,   suffix: '+', label: 'Years Experience',   icon: '🚀' },
               ].map(s => <StatItem key={s.label} {...s} />)}
             </div>
           </motion.div>
 
-          {/* ── Right column: Orbital diagram ── */}
+          {/* ── Right: Orbital diagram ── */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
@@ -102,63 +107,71 @@ export default function Hero() {
             className="flex items-center justify-center"
             style={{ overflow: 'visible' }}
           >
-            {/* Outer wrapper — badges may bleed outside so overflow:visible is key */}
             <div
               className="relative"
               style={{ width: SVG_SIZE + 'px', height: SVG_SIZE + 'px', overflow: 'visible' }}
             >
-
-              {/* SVG: dashed orbit ring + connector lines */}
+              {/* SVG: two decorative circles + connector lines */}
               <svg
                 className="absolute inset-0 w-full h-full"
                 viewBox={`0 0 ${SVG_SIZE} ${SVG_SIZE}`}
                 overflow="visible"
               >
-                {/* Outer dashed orbit circle */}
+                {/* Outer faint dashed ring */}
                 <circle
-                  cx={SVG_SIZE / 2} cy={SVG_SIZE / 2} r={RADIUS}
+                  cx={SVG_SIZE / 2} cy={SVG_SIZE / 2} r={BADGE_R + 20}
+                  fill="none" stroke="#e2e8f0" strokeWidth="1" strokeDasharray="6 5"
+                />
+                {/* Inner orbit ring (between logo and badges) */}
+                <circle
+                  cx={SVG_SIZE / 2} cy={SVG_SIZE / 2} r={ORBIT_R}
                   fill="none" stroke="#e2e8f0" strokeWidth="1.5" strokeDasharray="6 5"
                 />
-                {/* Connector lines: center → each badge */}
+                {/* Connector lines from centre to each badge */}
                 {BADGES.map(b => {
                   const rad = b.angle * Math.PI / 180
                   return (
                     <line key={b.angle}
                       x1={SVG_SIZE / 2} y1={SVG_SIZE / 2}
-                      x2={SVG_SIZE / 2 + Math.cos(rad) * RADIUS}
-                      y2={SVG_SIZE / 2 + Math.sin(rad) * RADIUS}
+                      x2={SVG_SIZE / 2 + Math.cos(rad) * BADGE_R}
+                      y2={SVG_SIZE / 2 + Math.sin(rad) * BADGE_R}
                       stroke="#d1d5db" strokeWidth="1" strokeDasharray="4 4"
                     />
                   )
                 })}
               </svg>
 
-              {/* Center logo with gradient ring (matches reference) */}
+              {/* Centre logo — gradient ring */}
               <div
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20
-                           rounded-full p-[5px]"
-                style={{ background: 'linear-gradient(135deg, #3b82f6 0%, #7c3aed 50%, #3b82f6 100%)' }}
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
+                           rounded-full flex items-center justify-center"
+                style={{
+                  width: '160px', height: '160px', zIndex: 20,
+                  background: 'linear-gradient(135deg, #3b82f6 0%, #7c3aed 60%, #3b82f6 100%)',
+                  padding: '4px',
+                }}
               >
-                <div className="w-40 h-40 rounded-full bg-white flex items-center justify-center shadow-xl">
+                <div className="w-full h-full rounded-full bg-white flex items-center justify-center shadow-lg">
                   <img src="/logo.jpeg" alt="JK Cloud" className="w-32 h-32 rounded-full object-cover" />
                 </div>
               </div>
 
-              {/* Service badges */}
+              {/* Service badges — z-30 so they're always above the centre circle */}
               {BADGES.map((b, i) => {
                 const { left, top } = badgePos(b.angle)
                 const Icon = b.icon
                 return (
                   <motion.div
                     key={b.angle}
-                    animate={{ y: [0, -7, 0] }}
+                    animate={{ y: [0, -8, 0] }}
                     transition={{ duration: 3 + i * 0.5, repeat: Infinity, ease: 'easeInOut', delay: i * 0.35 }}
                     className="absolute flex items-center gap-2.5 bg-white rounded-2xl shadow-xl
-                               px-3 py-2.5 z-10 border border-slate-100"
+                               px-3 py-2.5 border border-slate-100"
                     style={{
                       left: `${left}%`,
                       top:  `${top}%`,
                       transform: 'translate(-50%, -50%)',
+                      zIndex: 30,
                     }}
                   >
                     <div
@@ -173,11 +186,6 @@ export default function Hero() {
                   </motion.div>
                 )
               })}
-
-              {/* Decorative dots */}
-              <div className="absolute top-6 right-10 w-3 h-3 rounded-full bg-primary-200" />
-              <div className="absolute bottom-10 left-6 w-2 h-2 rounded-full bg-accent-300" />
-              <div className="absolute top-1/2 right-4 w-2 h-2 rounded-full bg-emerald-300" />
             </div>
           </motion.div>
 
