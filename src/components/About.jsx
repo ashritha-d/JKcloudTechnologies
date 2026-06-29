@@ -145,9 +145,9 @@ export default function About() {
 
             <div className="grid grid-cols-2 gap-2">
               {[
-                { value: 150, suffix: '+', label: 'Projects Done'       },
-                { value: 50,  suffix: '+', label: 'Happy Clients'       },
-                { value: 98,  suffix: '%', label: 'Satisfaction Rate'   },
+                { value: 200, suffix: '+', label: 'Projects Done'       },
+                { value: 100, suffix: '+', label: 'Happy Clients'       },
+                { value: 100, suffix: '%', label: 'Satisfaction Rate'   },
                 { value: 5,   suffix: '+', label: 'Years Experience'    },
               ].map(s => (
                 <div key={s.label} className="bg-white/8 rounded-2xl">

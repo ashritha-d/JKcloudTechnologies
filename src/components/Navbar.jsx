@@ -71,7 +71,7 @@ export default function Navbar() {
               onClick={() => handleNav('#contact')}
               className="btn-primary text-sm px-6 py-2.5"
             >
-              Get Quote
+              Get In Touch
             </button>
           </li>
         </ul>
@@ -114,7 +114,7 @@ export default function Navbar() {
                   onClick={() => handleNav('#contact')}
                   className="btn-primary w-full justify-center text-sm"
                 >
-                  Get Free Quote
+                  Get In Touch
                 </button>
               </li>
             </ul>

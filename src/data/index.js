@@ -161,8 +161,8 @@ export const stats = [
 ]
 
 export const bigStats = [
-  { count: 150, suffix: '+', label: 'Projects Delivered' },
+  { count: 200, suffix: '+', label: 'Projects Delivered' },
   { count: 100, suffix: '+', label: 'Happy Clients' },
-  { count: 98,  suffix: '%', label: 'Satisfaction Rate' },
+  { count: 100, suffix: '%', label: 'Satisfaction Rate' },
   { count: 5,   suffix: '+', label: 'Years Experience' },
 ]
