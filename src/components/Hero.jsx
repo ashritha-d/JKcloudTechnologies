@@ -85,7 +85,7 @@ export default function Hero() {
               </motion.a>
             </div>
 
-            <div className="flex flex-wrap gap-8 pt-8 border-t border-slate-100">
+            <div className="grid grid-cols-4 gap-4 pt-8 border-t border-slate-100">
               {[
                 { count: 150, suffix: '+', label: 'Projects Done',      icon: '🏆' },
                 { count: 98,  suffix: '%', label: 'Satisfaction',       icon: '❤️' },
