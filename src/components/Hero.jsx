@@ -6,28 +6,24 @@ import {
 } from 'react-icons/fa6'
 import useCounter from '../hooks/useCounter'
 
-// Two radii: orbit ring is decorative, badges sit outside it
-const ORBIT_R    = 125   // dashed circle (decorative, smaller)
-const BADGE_R    = 175   // badge center positions (outside the orbit ring)
-const SVG_SIZE   = 460   // container size
+const ORBIT_R  = 125
+const BADGE_R  = 175
+const SVG_SIZE = 460
 
-// Angles — 0=right, 90=down, 180=left, 270=up (screen coords)
-//   Web Dev top-left   Cloud top-right
-//       Mobile left        Digital right
-//              UI/UX bottom
+// Each badge can override radius (r) to fine-tune position independently
 const BADGES = [
-  { icon: FaLaptopCode,   label: 'Web\nDevelopment',   color: '#3b82f6', bg: '#eff6ff', angle: 243 },
-  { icon: FaCloud,        label: 'Cloud\nSolutions',    color: '#7c3aed', bg: '#f5f3ff', angle: 315 },
-  { icon: FaBullhorn,     label: 'Digital\nMarketing',  color: '#10b981', bg: '#f0fdf4', angle:  20 },
-  { icon: FaPaintbrush,   label: 'UI/UX\nDesign',       color: '#ec4899', bg: '#fdf2f8', angle:  90 },
-  { icon: FaMobileScreen, label: 'Mobile\nDev',         color: '#f59e0b', bg: '#fffbeb', angle: 178 },
+  { icon: FaLaptopCode,   label: 'Web\nDevelopment',  color: '#3b82f6', bg: '#eff6ff', angle: 255, r: BADGE_R      },
+  { icon: FaCloud,        label: 'Cloud\nSolutions',   color: '#7c3aed', bg: '#f5f3ff', angle: 315, r: BADGE_R      },
+  { icon: FaBullhorn,     label: 'Digital\nMarketing', color: '#10b981', bg: '#f0fdf4', angle:  20, r: BADGE_R      },
+  { icon: FaPaintbrush,   label: 'UI/UX\nDesign',      color: '#ec4899', bg: '#fdf2f8', angle:  90, r: BADGE_R      },
+  { icon: FaMobileScreen, label: 'Mobile\nDev',        color: '#f59e0b', bg: '#fffbeb', angle: 180, r: BADGE_R + 20 },
 ]
 
-function badgePos(angle) {
+function badgePos(angle, r) {
   const rad = angle * Math.PI / 180
   return {
-    left: ((SVG_SIZE / 2 + Math.cos(rad) * BADGE_R) / SVG_SIZE) * 100,
-    top:  ((SVG_SIZE / 2 + Math.sin(rad) * BADGE_R) / SVG_SIZE) * 100,
+    left: ((SVG_SIZE / 2 + Math.cos(rad) * r) / SVG_SIZE) * 100,
+    top:  ((SVG_SIZE / 2 + Math.sin(rad) * r) / SVG_SIZE) * 100,
   }
 }
 
@@ -133,8 +129,8 @@ export default function Hero() {
                   return (
                     <line key={b.angle}
                       x1={SVG_SIZE / 2} y1={SVG_SIZE / 2}
-                      x2={SVG_SIZE / 2 + Math.cos(rad) * BADGE_R}
-                      y2={SVG_SIZE / 2 + Math.sin(rad) * BADGE_R}
+                      x2={SVG_SIZE / 2 + Math.cos(rad) * b.r}
+                      y2={SVG_SIZE / 2 + Math.sin(rad) * b.r}
                       stroke="#d1d5db" strokeWidth="1" strokeDasharray="4 4"
                     />
                   )
@@ -158,7 +154,7 @@ export default function Hero() {
 
               {/* Service badges — z-30 so they're always above the centre circle */}
               {BADGES.map((b, i) => {
-                const { left, top } = badgePos(b.angle)
+                const { left, top } = badgePos(b.angle, b.r)
                 const Icon = b.icon
                 return (
                   <motion.div
