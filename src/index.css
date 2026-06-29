@@ -1,0 +1,141 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+  body { font-family: 'Poppins', sans-serif; overflow-x: hidden; }
+  * { box-sizing: border-box; }
+
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: #f1f5f9; }
+  ::-webkit-scrollbar-thumb { background: linear-gradient(to bottom, #3b82f6, #7c3aed); border-radius: 3px; }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/70 backdrop-blur-xl border border-white/40 shadow-lg rounded-2xl;
+  }
+  .glass-card-dark {
+    @apply bg-white/10 backdrop-blur-xl border border-white/20 shadow-lg rounded-2xl;
+  }
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary-500 to-accent-600 bg-clip-text text-transparent;
+  }
+  .section-badge {
+    @apply inline-block bg-gradient-to-r from-primary-500/10 to-accent-600/10
+           border border-primary-500/25 text-primary-500
+           px-5 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest mb-3;
+  }
+  .section-title {
+    @apply text-3xl md:text-4xl font-extrabold text-slate-900 leading-tight mb-3;
+  }
+  .section-subtitle {
+    @apply text-slate-500 text-base max-w-2xl mx-auto leading-relaxed;
+  }
+  .btn-primary {
+    @apply inline-flex items-center gap-2.5 bg-gradient-to-r from-primary-500 to-accent-600
+           text-white font-semibold px-8 py-3.5 rounded-full
+           shadow-[0_6px_24px_rgba(59,130,246,0.4)]
+           hover:shadow-[0_12px_40px_rgba(59,130,246,0.5)] hover:-translate-y-1
+           transition-all duration-300 cursor-pointer border-0;
+  }
+  .btn-outline {
+    @apply inline-flex items-center gap-2.5 bg-transparent text-primary-500 font-semibold
+           border-2 border-primary-500 px-7 py-3 rounded-full
+           hover:bg-primary-500 hover:text-white hover:-translate-y-1
+           hover:shadow-[0_8px_24px_rgba(59,130,246,0.3)]
+           transition-all duration-300 cursor-pointer;
+  }
+  .filter-btn {
+    @apply px-5 py-2 rounded-full border border-slate-200 bg-white text-slate-500
+           text-sm font-medium cursor-pointer transition-all duration-300
+           hover:bg-gradient-to-r hover:from-primary-500 hover:to-accent-600
+           hover:text-white hover:border-transparent
+           hover:shadow-[0_4px_16px_rgba(59,130,246,0.3)];
+  }
+  .filter-btn-active {
+    @apply bg-gradient-to-r from-primary-500 to-accent-600 text-white border-transparent
+           shadow-[0_4px_16px_rgba(59,130,246,0.3)];
+  }
+}
+
+/* ── Scroll-progress bar ─────────────────────── */
+#scroll-progress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #3b82f6, #7c3aed);
+  z-index: 99999;
+  transition: width 0.1s linear;
+  box-shadow: 0 0 10px rgba(59,130,246,0.5);
+}
+
+/* ── Loader ──────────────────────────────────── */
+.loader-bar { @apply w-48 h-1 bg-white/15 rounded-full overflow-hidden mx-auto my-4; }
+.loader-progress { @apply h-full rounded-full bg-gradient-to-r from-primary-500 to-accent-600 animate-loaderFill; }
+
+/* ── Hero shapes ─────────────────────────────── */
+.hero-shape {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.15;
+}
+.hero-shape-1 { width: 600px; height: 600px; background: radial-gradient(circle, #3b82f6, transparent); top:-200px; right:-100px; animation: shapeDrift 20s linear infinite; }
+.hero-shape-2 { width: 400px; height: 400px; background: radial-gradient(circle, #7c3aed, transparent); bottom:-100px; left:-100px; animation: shapeDrift 25s linear infinite reverse; }
+.hero-shape-3 { width: 200px; height: 200px; background: radial-gradient(circle, #06b6d4, transparent); top:40%; left:30%; animation: shapeDrift 15s linear infinite; }
+.hero-shape-4 { width: 300px; height: 300px; background: radial-gradient(circle, #ec4899, transparent); top:20%; right:40%; animation: shapeDrift 18s linear infinite reverse; }
+.hero-shape-5 { width: 150px; height: 150px; background: radial-gradient(circle, #f59e0b, transparent); bottom:20%; right:20%; animation: shapeDrift 12s linear infinite; }
+
+/* ── Orbit icons ─────────────────────────────── */
+.orbit-icon {
+  position: absolute; top:50%; left:50%;
+  width: 36px; height: 36px; margin: -18px;
+  border-radius: 50%; background: white;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  font-size: 1rem;
+}
+.orbit-icon-1 { animation: orbit 6s linear infinite; }
+.orbit-icon-2 { animation: orbit 8s linear infinite -2s; }
+.orbit-icon-3 { animation: orbit 10s linear infinite -4s; }
+.orbit-icon-4 { animation: orbit 7s linear infinite -1s; }
+
+/* ── About blob ──────────────────────────────── */
+.about-blob {
+  width: 320px; height: 320px;
+  background: linear-gradient(135deg, #dbeafe, #ede9fe);
+  animation: morph 8s ease-in-out infinite;
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* ── Process timeline connector ──────────────── */
+.timeline-connector {
+  position: absolute; left: 50%; top: 0; bottom: 0;
+  width: 2px; background: linear-gradient(to bottom, #3b82f6, #7c3aed);
+  opacity: 0.25; transform: translateX(-50%);
+}
+
+/* ── Testimonials carousel control ──────────── */
+.testimonial-dot {
+  @apply w-2.5 h-2.5 rounded-full bg-primary-500/30 cursor-pointer transition-all duration-300;
+}
+.testimonial-dot-active {
+  @apply w-7 rounded-md bg-gradient-to-r from-primary-500 to-accent-600;
+}
+
+/* ── Floating WhatsApp pulse ─────────────────── */
+.wa-pulse { animation: pulseBadge 3s ease-in-out infinite; }
+
+/* ── Particle ────────────────────────────────── */
+.particle {
+  position: absolute; border-radius: 50%;
+  animation: particleRise linear infinite;
+}
+
+/* ── Code card in hero ───────────────────────── */
+.code-tag   { color: #3b82f6; }
+.code-attr  { color: #7c3aed; }
+.code-val   { color: #10b981; }
+.code-text  { color: #0f172a; }
+.code-comment { color: #94a3b8; }
