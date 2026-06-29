@@ -8,7 +8,6 @@ import Services from './components/Services'
 import Pricing from './components/Pricing'
 import WhyUs from './components/WhyUs'
 import Process from './components/Process'
-import Testimonials from './components/Testimonials'
 import CTABanner from './components/CTABanner'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
@@ -39,14 +38,13 @@ export default function App() {
       <Loader onDone={() => setLoaded(true)} />
       <div className={`transition-opacity duration-700 ${loaded ? 'opacity-100' : 'opacity-0'}`}>
         <Navbar />
-        <Hero />
         <MarqueeStrip />
+        <Hero />
         <About />
         <Services />
         <Pricing />
         <WhyUs />
         <Process />
-        <Testimonials />
         <CTABanner />
         <Contact />
         <Footer />

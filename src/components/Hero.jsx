@@ -38,7 +38,7 @@ function StatItem({ count, suffix, label, icon }) {
 
 export default function Hero() {
   return (
-    <section id="home" className="min-h-screen bg-white pt-20 overflow-hidden">
+    <section id="home" className="min-h-screen bg-white pt-6 overflow-hidden">
       <div className="container mx-auto px-6 py-16">
         <div className="grid lg:grid-cols-2 gap-16 items-center min-h-[calc(100vh-80px)]">
 

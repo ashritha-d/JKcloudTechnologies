@@ -9,7 +9,6 @@ const links = [
   { href: '#pricing',      label: 'Pricing' },
   { href: '#why-us',       label: 'Why Us' },
   { href: '#process',      label: 'Process' },
-  { href: '#testimonials', label: 'Testimonials' },
 ]
 
 export default function Navbar() {
