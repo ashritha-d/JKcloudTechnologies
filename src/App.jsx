@@ -1,5 +1,4 @@
-import { useEffect, useState } from 'react'
-import Loader from './components/Loader'
+import { useEffect } from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import MarqueeStrip from './components/MarqueeStrip'
@@ -14,8 +13,6 @@ import Footer from './components/Footer'
 import FloatingButtons from './components/FloatingButtons'
 
 export default function App() {
-  const [loaded, setLoaded] = useState(false)
-
   // Scroll-progress bar
   useEffect(() => {
     const bar = document.createElement('div')
@@ -35,21 +32,18 @@ export default function App() {
 
   return (
     <>
-      <Loader onDone={() => setLoaded(true)} />
-      <div className={`transition-opacity duration-700 ${loaded ? 'opacity-100' : 'opacity-0'}`}>
-        <Navbar />
-        <MarqueeStrip />
-        <Hero />
-        <About />
-        <Services />
-        <Pricing />
-        <WhyUs />
-        <Process />
-        <CTABanner />
-        <Contact />
-        <Footer />
-        <FloatingButtons />
-      </div>
+      <Navbar />
+      <MarqueeStrip />
+      <Hero />
+      <About />
+      <Services />
+      <Pricing />
+      <WhyUs />
+      <Process />
+      <CTABanner />
+      <Contact />
+      <Footer />
+      <FloatingButtons />
     </>
   )
 }
