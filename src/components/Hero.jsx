@@ -12,11 +12,11 @@ const SVG_SIZE = 460
 
 // Each badge can override radius (r) to fine-tune position independently
 const BADGES = [
-  { icon: FaLaptopCode,   label: 'Web\nDevelopment',  color: '#3b82f6', bg: '#eff6ff', angle: 255, r: BADGE_R      },
+  { icon: FaLaptopCode,   label: 'Web\nDevelopment',  color: '#3b82f6', bg: '#eff6ff', angle: 264, r: BADGE_R      },
   { icon: FaCloud,        label: 'Cloud\nSolutions',   color: '#7c3aed', bg: '#f5f3ff', angle: 315, r: BADGE_R      },
   { icon: FaBullhorn,     label: 'Digital\nMarketing', color: '#10b981', bg: '#f0fdf4', angle:  20, r: BADGE_R      },
   { icon: FaPaintbrush,   label: 'UI/UX\nDesign',      color: '#ec4899', bg: '#fdf2f8', angle:  90, r: BADGE_R      },
-  { icon: FaMobileScreen, label: 'Mobile\nDev',        color: '#f59e0b', bg: '#fffbeb', angle: 180, r: BADGE_R + 20 },
+  { icon: FaMobileScreen, label: 'Mobile\nDev',        color: '#f59e0b', bg: '#fffbeb', angle: 180, r: BADGE_R + 35 },
 ]
 
 function badgePos(angle, r) {
