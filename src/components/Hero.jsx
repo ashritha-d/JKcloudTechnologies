@@ -87,9 +87,9 @@ export default function Hero() {
 
             <div className="grid grid-cols-4 gap-4 pt-8 border-t border-slate-100">
               {[
-                { count: 150, suffix: '+', label: 'Projects Done',      icon: '🏆' },
-                { count: 98,  suffix: '%', label: 'Satisfaction',       icon: '❤️' },
-                { count: 50,  suffix: '+', label: 'Happy Clients',      icon: '👥' },
+                { count: 200, suffix: '+', label: 'Projects Done',      icon: '🏆' },
+                { count: 100, suffix: '%', label: 'Satisfaction',       icon: '❤️' },
+                { count: 100, suffix: '+', label: 'Happy Clients',      icon: '👥' },
                 { count: 5,   suffix: '+', label: 'Years Experience',   icon: '🚀' },
               ].map(s => <StatItem key={s.label} {...s} />)}
             </div>
