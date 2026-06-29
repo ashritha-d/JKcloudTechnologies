@@ -12,7 +12,7 @@ export default function FloatingButtons() {
   }, [])
 
   return (
-    <div className="fixed right-4 bottom-6 z-[900] hidden md:flex flex-col gap-3 items-end">
+    <div className="fixed right-4 bottom-24 md:bottom-6 z-[900] flex flex-col gap-3 items-end">
       {/* WhatsApp */}
       <motion.a
         href="https://wa.me/916304190711"
