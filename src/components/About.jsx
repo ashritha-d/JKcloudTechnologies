@@ -99,7 +99,7 @@ export default function About() {
               <motion.div
                 animate={{ y: [0, -8, 0] }}
                 transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
-                className="absolute -bottom-4 -right-4 bg-white rounded-2xl shadow-xl px-4 py-3 border border-slate-100"
+                className="hidden sm:block absolute -bottom-4 -right-4 bg-white rounded-2xl shadow-xl px-4 py-3 border border-slate-100"
               >
                 <div className="flex items-center gap-2">
                   <div className="w-9 h-9 rounded-xl bg-amber-50 flex items-center justify-center text-amber-500">
@@ -114,7 +114,7 @@ export default function About() {
               <motion.div
                 animate={{ y: [0, -8, 0] }}
                 transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-                className="absolute -top-4 -left-4 bg-white rounded-2xl shadow-xl px-4 py-3 border border-slate-100"
+                className="hidden sm:block absolute -top-4 -left-4 bg-white rounded-2xl shadow-xl px-4 py-3 border border-slate-100"
               >
                 <div className="flex items-center gap-2">
                   <div className="w-9 h-9 rounded-xl bg-emerald-50 flex items-center justify-center text-emerald-500">

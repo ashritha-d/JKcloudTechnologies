@@ -21,7 +21,7 @@ function BigStat({ count, suffix, label }) {
   }, [])
 
   return (
-    <div ref={ref} className="flex-1 min-w-[120px] py-10 px-5 text-center border-r border-white/15 last:border-r-0">
+    <div ref={ref} className="py-8 px-4 text-center">
       <div className="text-4xl font-black text-white leading-none">{val}<span className="text-white/70">{suffix}</span></div>
       <div className="text-sm text-white/60 font-medium mt-2">{label}</div>
     </div>
@@ -73,7 +73,7 @@ export default function WhyUs() {
           whileInView={{ opacity:1, y:0 }}
           viewport={{ once:true }}
           transition={{ duration:0.6, delay:0.2 }}
-          className="mt-16 rounded-2xl overflow-hidden flex flex-wrap"
+          className="mt-16 rounded-2xl overflow-hidden grid grid-cols-2 md:grid-cols-4"
           style={{ background:'linear-gradient(135deg,#1a56db,#7c3aed)' }}
         >
           {bigStats.map(s => <BigStat key={s.label} {...s} />)}

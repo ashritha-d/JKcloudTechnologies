@@ -50,7 +50,21 @@ function StatItem({ count, suffix, label, icon }) {
 export default function Hero() {
   return (
     <section id="home" className="bg-white py-10 lg:py-16">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-4 lg:px-6">
+
+        {/* Mobile logo — hidden on desktop where the orbital diagram shows */}
+        <div className="flex flex-col items-center mb-8 lg:hidden">
+          <div
+            className="rounded-full flex items-center justify-center mb-3"
+            style={{ width: 96, height: 96, background: 'linear-gradient(135deg,#3b82f6,#7c3aed)', padding: 3 }}
+          >
+            <div className="w-full h-full rounded-full bg-white flex items-center justify-center overflow-hidden">
+              <img src="/logo.jpeg" alt="JK Cloud Technologies" className="w-full h-full rounded-full object-cover" />
+            </div>
+          </div>
+          <span className="text-xs font-bold text-slate-400 tracking-[2px] uppercase">JK Cloud Technologies</span>
+        </div>
+
         <div className="grid lg:grid-cols-2 gap-10 items-center">
 
           {/* ── Left ── */}
@@ -66,7 +80,7 @@ export default function Hero() {
               </span>
             </div>
 
-            <h1 className="text-4xl lg:text-5xl xl:text-6xl font-black text-slate-900 leading-[1.1] mb-5">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black text-slate-900 leading-[1.1] mb-5">
               Digital Solutions<br />
               <span className="gradient-text">That Drive Growth</span>
             </h1>
@@ -76,7 +90,7 @@ export default function Hero() {
               with cutting-edge technology and innovative solutions.
             </p>
 
-            <div className="flex flex-wrap gap-4 mb-10">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-4 mb-10">
               <motion.a href="#services" whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }} className="btn-primary">
                 Explore Services <FaArrowRight className="text-sm" />
               </motion.a>
@@ -85,7 +99,7 @@ export default function Hero() {
               </motion.a>
             </div>
 
-            <div className="grid grid-cols-4 gap-4 pt-8 border-t border-slate-100">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-8 border-t border-slate-100">
               {[
                 { count: 200, suffix: '+', label: 'Projects Done',      icon: '🏆' },
                 { count: 100, suffix: '%', label: 'Satisfaction',       icon: '❤️' },
@@ -95,12 +109,12 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* ── Right: Orbital diagram ── */}
+          {/* ── Right: Orbital diagram — desktop only ── */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="flex items-center justify-center"
+            className="hidden lg:flex items-center justify-center"
             style={{ overflow: 'visible' }}
           >
             <div
