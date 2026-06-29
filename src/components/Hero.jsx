@@ -6,17 +6,25 @@ import {
 } from 'react-icons/fa6'
 import useCounter from '../hooks/useCounter'
 
-// RADIUS must match SVG circle r value below
-const RADIUS = 115
 const SVG_SIZE = 420
+const RADIUS   = 155   // orbit radius in SVG units
 
+// Angles: 0=right, 90=down, 180=left, 270=up (screen coords)
 const BADGES = [
-  { icon: FaPaintbrush,   label: 'UI/UX\nDesign',       color: '#ec4899', bg: '#fdf2f8', angle: -100 },
-  { icon: FaLaptopCode,   label: 'Web\nDevelopment',     color: '#3b82f6', bg: '#eff6ff', angle: -30 },
-  { icon: FaCloud,        label: 'Cloud\nSolutions',     color: '#7c3aed', bg: '#f5f3ff', angle:  40  },
-  { icon: FaMobileScreen, label: 'Mobile\nDevelopment',  color: '#f59e0b', bg: '#fffbeb', angle: 120 },
-  { icon: FaBullhorn,     label: 'Digital\nMarketing',   color: '#10b981', bg: '#f0fdf4', angle: 210 },
+  { icon: FaLaptopCode,   label: 'Web\nDevelopment',   color: '#3b82f6', bg: '#eff6ff', angle: 225 },
+  { icon: FaCloud,        label: 'Cloud\nSolutions',    color: '#7c3aed', bg: '#f5f3ff', angle: 315 },
+  { icon: FaBullhorn,     label: 'Digital\nMarketing',  color: '#10b981', bg: '#f0fdf4', angle:  15 },
+  { icon: FaPaintbrush,   label: 'UI/UX\nDesign',       color: '#ec4899', bg: '#fdf2f8', angle:  90 },
+  { icon: FaMobileScreen, label: 'Mobile\nDevelopment', color: '#f59e0b', bg: '#fffbeb', angle: 170 },
 ]
+
+function badgePos(angle) {
+  const rad = angle * Math.PI / 180
+  return {
+    left: ((SVG_SIZE / 2 + Math.cos(rad) * RADIUS) / SVG_SIZE) * 100,
+    top:  ((SVG_SIZE / 2 + Math.sin(rad) * RADIUS) / SVG_SIZE) * 100,
+  }
+}
 
 function StatItem({ count, suffix, label, icon }) {
   const [inView, setInView] = useState(false)
@@ -44,7 +52,7 @@ export default function Hero() {
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
 
-          {/* ── Left ── */}
+          {/* ── Left column ── */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             animate={{ opacity: 1, x: 0 }}
@@ -63,22 +71,15 @@ export default function Hero() {
             </h1>
 
             <p className="text-slate-500 text-lg leading-relaxed mb-10 max-w-lg">
-              We help businesses transform ideas into powerful digital experiences with cutting-edge technology and innovative solutions.
+              We help businesses transform ideas into powerful digital experiences
+              with cutting-edge technology and innovative solutions.
             </p>
 
             <div className="flex flex-wrap gap-4 mb-12">
-              <motion.a
-                href="#services"
-                whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}
-                className="btn-primary"
-              >
+              <motion.a href="#services" whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }} className="btn-primary">
                 Explore Services <FaArrowRight className="text-sm" />
               </motion.a>
-              <motion.a
-                href="#contact"
-                whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}
-                className="btn-outline"
-              >
+              <motion.a href="#contact" whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }} className="btn-outline">
                 Contact Us <FaHeadset className="text-sm" />
               </motion.a>
             </div>
@@ -93,7 +94,7 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* ── Right: Circular Diagram ── */}
+          {/* ── Right column: Orbital diagram ── */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
@@ -101,24 +102,28 @@ export default function Hero() {
             className="flex items-center justify-center"
             style={{ overflow: 'visible' }}
           >
-            <div className="relative" style={{ width: '420px', height: '420px', overflow: 'visible' }}>
+            {/* Outer wrapper — badges may bleed outside so overflow:visible is key */}
+            <div
+              className="relative"
+              style={{ width: SVG_SIZE + 'px', height: SVG_SIZE + 'px', overflow: 'visible' }}
+            >
 
-              {/* SVG: dashed circle + connector lines */}
+              {/* SVG: dashed orbit ring + connector lines */}
               <svg
                 className="absolute inset-0 w-full h-full"
                 viewBox={`0 0 ${SVG_SIZE} ${SVG_SIZE}`}
                 overflow="visible"
               >
+                {/* Outer dashed orbit circle */}
                 <circle
                   cx={SVG_SIZE / 2} cy={SVG_SIZE / 2} r={RADIUS}
                   fill="none" stroke="#e2e8f0" strokeWidth="1.5" strokeDasharray="6 5"
                 />
-                {/* Connector lines from center to badge positions */}
+                {/* Connector lines: center → each badge */}
                 {BADGES.map(b => {
                   const rad = b.angle * Math.PI / 180
                   return (
-                    <line
-                      key={b.label}
+                    <line key={b.angle}
                       x1={SVG_SIZE / 2} y1={SVG_SIZE / 2}
                       x2={SVG_SIZE / 2 + Math.cos(rad) * RADIUS}
                       y2={SVG_SIZE / 2 + Math.sin(rad) * RADIUS}
@@ -128,30 +133,31 @@ export default function Hero() {
                 })}
               </svg>
 
-              {/* Center logo */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20
-                              w-36 h-36 rounded-full bg-white shadow-2xl border-4 border-white
-                              flex items-center justify-center">
-                <img src="/logo.jpeg" alt="JK Cloud" className="w-28 h-28 rounded-full object-cover" />
+              {/* Center logo with gradient ring (matches reference) */}
+              <div
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20
+                           rounded-full p-[5px]"
+                style={{ background: 'linear-gradient(135deg, #3b82f6 0%, #7c3aed 50%, #3b82f6 100%)' }}
+              >
+                <div className="w-40 h-40 rounded-full bg-white flex items-center justify-center shadow-xl">
+                  <img src="/logo.jpeg" alt="JK Cloud" className="w-32 h-32 rounded-full object-cover" />
+                </div>
               </div>
 
-              {/* Service badges — centered on the circle edge */}
+              {/* Service badges */}
               {BADGES.map((b, i) => {
-                const rad = b.angle * Math.PI / 180
-                // Convert SVG coords to % of container
-                const leftPct = ((SVG_SIZE / 2 + Math.cos(rad) * RADIUS) / SVG_SIZE) * 100
-                const topPct  = ((SVG_SIZE / 2 + Math.sin(rad) * RADIUS) / SVG_SIZE) * 100
+                const { left, top } = badgePos(b.angle)
                 const Icon = b.icon
                 return (
                   <motion.div
-                    key={b.label}
+                    key={b.angle}
                     animate={{ y: [0, -7, 0] }}
                     transition={{ duration: 3 + i * 0.5, repeat: Infinity, ease: 'easeInOut', delay: i * 0.35 }}
                     className="absolute flex items-center gap-2.5 bg-white rounded-2xl shadow-xl
                                px-3 py-2.5 z-10 border border-slate-100"
                     style={{
-                      left: `${leftPct}%`,
-                      top:  `${topPct}%`,
+                      left: `${left}%`,
+                      top:  `${top}%`,
                       transform: 'translate(-50%, -50%)',
                     }}
                   >
@@ -161,15 +167,17 @@ export default function Hero() {
                     >
                       <Icon />
                     </div>
-                    <span
-                      className="text-xs font-bold text-slate-700 leading-tight"
-                      style={{ whiteSpace: 'pre-line' }}
-                    >
+                    <span className="text-xs font-bold text-slate-700 leading-snug whitespace-pre-line">
                       {b.label}
                     </span>
                   </motion.div>
                 )
               })}
+
+              {/* Decorative dots */}
+              <div className="absolute top-6 right-10 w-3 h-3 rounded-full bg-primary-200" />
+              <div className="absolute bottom-10 left-6 w-2 h-2 rounded-full bg-accent-300" />
+              <div className="absolute top-1/2 right-4 w-2 h-2 rounded-full bg-emerald-300" />
             </div>
           </motion.div>
 
