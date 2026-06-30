@@ -10,8 +10,8 @@ const items = [
 export default function MarqueeStrip() {
   return (
     <div
-      className="overflow-hidden py-3.5 sticky z-[999]"
-      style={{ background: 'linear-gradient(135deg, #1a56db, #7c3aed)', top: '68px' }}
+      className="overflow-hidden py-3.5"
+      style={{ background: 'linear-gradient(135deg, #1a56db, #7c3aed)', marginTop: '68px' }}
     >
       <div className="flex animate-marquee w-max">
         {items.map((item, i) => (
