@@ -1,38 +1,23 @@
 import { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
-import {
-  FaLaptopCode, FaCloud, FaMobileScreen, FaBullhorn, FaPaintbrush,
-  FaArrowRight, FaHeadset,
-} from 'react-icons/fa6'
+import { FaArrowRight, FaHeadset } from 'react-icons/fa6'
 import useCounter from '../hooks/useCounter'
 
-const ORBIT_R  = 125
-const BADGE_R  = 175
-const SVG_SIZE = 460
-
-// Each badge can override radius (r) to fine-tune position independently
-const BADGES = [
-  { icon: FaLaptopCode,   label: 'Web\nDevelopment',  color: '#3b82f6', bg: '#eff6ff', angle: 252, r: BADGE_R + 10 },
-  { icon: FaCloud,        label: 'Cloud\nSolutions',   color: '#7c3aed', bg: '#f5f3ff', angle: 315, r: BADGE_R      },
-  { icon: FaBullhorn,     label: 'Digital\nMarketing', color: '#10b981', bg: '#f0fdf4', angle:  20, r: BADGE_R      },
-  { icon: FaPaintbrush,   label: 'UI/UX\nDesign',      color: '#ec4899', bg: '#fdf2f8', angle:  90, r: BADGE_R      },
-  { icon: FaMobileScreen, label: 'Mobile\nDev',        color: '#f59e0b', bg: '#fffbeb', angle: 180, r: BADGE_R + 35 },
-]
-
-function badgePos(angle, r) {
-  const rad = angle * Math.PI / 180
-  return {
-    left: ((SVG_SIZE / 2 + Math.cos(rad) * r) / SVG_SIZE) * 100,
-    top:  ((SVG_SIZE / 2 + Math.sin(rad) * r) / SVG_SIZE) * 100,
-  }
-}
+// ── Replace with your actual promotional video URL ──────────────────────────
+const VIDEO_SRC  = 'https://res.cloudinary.com/demo/video/upload/v1611171218/samples/cld-sample-video.mp4'
+const VIDEO_WEBM = ''          // optional WebM for better compression
+const VIDEO_POSTER = '/logo.jpeg'
+// ────────────────────────────────────────────────────────────────────────────
 
 function StatItem({ count, suffix, label, icon }) {
   const [inView, setInView] = useState(false)
   const ref = useRef(null)
   const val = useCounter(count, 2000, inView)
   useEffect(() => {
-    const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) setInView(true) }, { threshold: 0.5 })
+    const obs = new IntersectionObserver(
+      ([e]) => { if (e.isIntersecting) setInView(true) },
+      { threshold: 0.5 }
+    )
     if (ref.current) obs.observe(ref.current)
     return () => obs.disconnect()
   }, [])
@@ -47,27 +32,157 @@ function StatItem({ count, suffix, label, icon }) {
   )
 }
 
-export default function Hero() {
-  return (
-    <section id="home" className="bg-white py-10 lg:py-16">
-      <div className="container mx-auto px-4 lg:px-6">
+function HeroVideo() {
+  const videoRef = useRef(null)
 
-        {/* Mobile logo — hidden on desktop where the orbital diagram shows */}
-        <div className="flex flex-col items-center mb-8 lg:hidden">
-          <div
-            className="rounded-full flex items-center justify-center mb-3"
-            style={{ width: 96, height: 96, background: 'linear-gradient(135deg,#3b82f6,#7c3aed)', padding: 3 }}
-          >
-            <div className="w-full h-full rounded-full bg-white flex items-center justify-center overflow-hidden">
-              <img src="/logo.jpeg" alt="JK Cloud Technologies" className="w-full h-full rounded-full object-cover" />
+  useEffect(() => {
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)')
+    if (mq.matches && videoRef.current) videoRef.current.pause()
+  }, [])
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 40, scale: 0.96 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      transition={{ duration: 0.85, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+      className="relative w-full"
+      style={{ maxWidth: 620 }}
+      aria-label="JK Cloud Technologies product showcase"
+    >
+      {/* Ambient glow behind the card */}
+      <div
+        className="absolute inset-0 -z-10 blur-3xl opacity-25"
+        style={{
+          background: 'linear-gradient(135deg, #3b82f6, #7c3aed)',
+          borderRadius: 24,
+          transform: 'scale(0.92) translateY(16px)',
+        }}
+      />
+
+      {/* Outer glass card */}
+      <motion.div
+        whileHover={{ y: -8, boxShadow: '0 32px 80px rgba(59,130,246,0.22), 0 0 0 1px rgba(255,255,255,0.12)' }}
+        transition={{ duration: 0.35 }}
+        style={{
+          borderRadius: 18,
+          background: 'linear-gradient(145deg, #172D47, #0f1e35)',
+          border: '1px solid rgba(255,255,255,0.12)',
+          backdropFilter: 'blur(12px)',
+          padding: 18,
+          boxShadow: '0 20px 60px rgba(0,0,0,0.28), 0 0 0 1px rgba(255,255,255,0.05)',
+        }}
+      >
+        {/* Fake browser chrome */}
+        <div className="flex items-center gap-1.5 mb-4 px-1">
+          <div className="w-2.5 h-2.5 rounded-full" style={{ background: '#ff5f57' }} />
+          <div className="w-2.5 h-2.5 rounded-full" style={{ background: '#febc2e' }} />
+          <div className="w-2.5 h-2.5 rounded-full" style={{ background: '#28c840' }} />
+          <div className="flex-1 mx-3">
+            <div
+              className="flex items-center justify-center h-5 rounded-full text-[9px] font-medium"
+              style={{ background: 'rgba(255,255,255,0.06)', color: 'rgba(255,255,255,0.35)' }}
+            >
+              jkcloudtech.com
             </div>
           </div>
-          <span className="text-xs font-bold text-slate-400 tracking-[2px] uppercase">JK Cloud Technologies</span>
+          <div
+            className="w-4 h-4 rounded flex items-center justify-center"
+            style={{ background: 'rgba(255,255,255,0.06)' }}
+          >
+            <div className="w-1.5 h-1.5 rounded-sm" style={{ background: 'rgba(255,255,255,0.3)' }} />
+          </div>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-10 items-center">
+        {/* Video element */}
+        <div style={{ borderRadius: 12, overflow: 'hidden', background: '#0a1628' }}>
+          <video
+            ref={videoRef}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            poster={VIDEO_POSTER}
+            aria-label="JK Cloud Technologies showcase video"
+            style={{
+              width: '100%',
+              height: 'auto',
+              display: 'block',
+              borderRadius: 12,
+              objectFit: 'cover',
+              aspectRatio: '16/9',
+            }}
+          >
+            {VIDEO_WEBM && <source src={VIDEO_WEBM} type="video/webm" />}
+            <source src={VIDEO_SRC}  type="video/mp4" />
+          </video>
+        </div>
 
-          {/* ── Left ── */}
+        {/* Bottom status bar */}
+        <div className="mt-3.5 px-1 flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <div
+              className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0"
+              style={{ background: 'linear-gradient(135deg,#3b82f6,#7c3aed)' }}
+            >
+              <img src="/logo.jpeg" alt="" className="w-full h-full rounded-full object-cover opacity-80" />
+            </div>
+            <span style={{ color: 'rgba(255,255,255,0.45)', fontSize: 11, fontWeight: 500 }}>
+              JK Cloud Technologies
+            </span>
+          </div>
+          <div className="flex items-center gap-1.5">
+            <span
+              className="animate-pulse inline-block w-1.5 h-1.5 rounded-full"
+              style={{ background: '#4ade80' }}
+            />
+            <span style={{ color: 'rgba(255,255,255,0.35)', fontSize: 10 }}>Live</span>
+          </div>
+        </div>
+      </motion.div>
+
+      {/* Floating metric chips */}
+      <motion.div
+        initial={{ opacity: 0, x: 20, y: -10 }}
+        animate={{ opacity: 1, x: 0, y: 0 }}
+        transition={{ delay: 1, duration: 0.5 }}
+        animate-float
+        className="absolute -top-4 -right-4 bg-white rounded-2xl shadow-xl px-3.5 py-2.5
+                   border border-slate-100 flex items-center gap-2 hidden sm:flex"
+      >
+        <div className="w-7 h-7 rounded-xl flex items-center justify-center text-sm"
+             style={{ background: '#eff6ff' }}>🏆</div>
+        <div>
+          <div className="text-xs font-black text-slate-900 leading-none">200+</div>
+          <div className="text-[10px] text-slate-400">Projects</div>
+        </div>
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, x: -20, y: 10 }}
+        animate={{ opacity: 1, x: 0, y: 0 }}
+        transition={{ delay: 1.2, duration: 0.5 }}
+        className="absolute -bottom-4 -left-4 bg-white rounded-2xl shadow-xl px-3.5 py-2.5
+                   border border-slate-100 flex items-center gap-2 hidden sm:flex"
+      >
+        <div className="w-7 h-7 rounded-xl flex items-center justify-center text-sm"
+             style={{ background: '#f0fdf4' }}>⭐</div>
+        <div>
+          <div className="text-xs font-black text-slate-900 leading-none">100%</div>
+          <div className="text-[10px] text-slate-400">Satisfaction</div>
+        </div>
+      </motion.div>
+    </motion.div>
+  )
+}
+
+export default function Hero() {
+  return (
+    <section id="home" className="bg-white py-10 lg:py-16 overflow-x-clip">
+      <div className="container mx-auto px-4 lg:px-6">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+
+          {/* ── Left: Text ── */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             animate={{ opacity: 1, x: 0 }}
@@ -91,113 +206,36 @@ export default function Hero() {
             </p>
 
             <div className="flex flex-col sm:flex-row flex-wrap gap-4 mb-10">
-              <motion.a href="#services" whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }} className="btn-primary">
+              <motion.a
+                href="#services"
+                whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}
+                className="btn-primary"
+              >
                 Explore Services <FaArrowRight className="text-sm" />
               </motion.a>
-              <motion.a href="#contact" whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }} className="btn-outline">
+              <motion.a
+                href="#contact"
+                whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}
+                className="btn-outline"
+              >
                 Contact Us <FaHeadset className="text-sm" />
               </motion.a>
             </div>
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-8 border-t border-slate-100">
               {[
-                { count: 200, suffix: '+', label: 'Projects Done',      icon: '🏆' },
-                { count: 100, suffix: '%', label: 'Satisfaction',       icon: '❤️' },
-                { count: 100, suffix: '+', label: 'Happy Clients',      icon: '👥' },
-                { count: 5,   suffix: '+', label: 'Years Experience',   icon: '🚀' },
+                { count: 200, suffix: '+', label: 'Projects Done',    icon: '🏆' },
+                { count: 100, suffix: '%', label: 'Satisfaction',     icon: '❤️' },
+                { count: 100, suffix: '+', label: 'Happy Clients',    icon: '👥' },
+                { count: 5,   suffix: '+', label: 'Years Experience', icon: '🚀' },
               ].map(s => <StatItem key={s.label} {...s} />)}
             </div>
           </motion.div>
 
-          {/* ── Right: Orbital diagram — desktop only ── */}
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="hidden lg:flex items-center justify-center"
-            style={{ overflow: 'visible' }}
-          >
-            <div
-              className="relative"
-              style={{ width: SVG_SIZE + 'px', height: SVG_SIZE + 'px', overflow: 'visible' }}
-            >
-              {/* SVG: two decorative circles + connector lines */}
-              <svg
-                className="absolute inset-0 w-full h-full"
-                viewBox={`0 0 ${SVG_SIZE} ${SVG_SIZE}`}
-                overflow="visible"
-              >
-                {/* Outer faint dashed ring */}
-                <circle
-                  cx={SVG_SIZE / 2} cy={SVG_SIZE / 2} r={BADGE_R + 20}
-                  fill="none" stroke="#e2e8f0" strokeWidth="1" strokeDasharray="6 5"
-                />
-                {/* Inner orbit ring (between logo and badges) */}
-                <circle
-                  cx={SVG_SIZE / 2} cy={SVG_SIZE / 2} r={ORBIT_R}
-                  fill="none" stroke="#e2e8f0" strokeWidth="1.5" strokeDasharray="6 5"
-                />
-                {/* Connector lines from centre to each badge */}
-                {BADGES.map(b => {
-                  const rad = b.angle * Math.PI / 180
-                  return (
-                    <line key={b.angle}
-                      x1={SVG_SIZE / 2} y1={SVG_SIZE / 2}
-                      x2={SVG_SIZE / 2 + Math.cos(rad) * b.r}
-                      y2={SVG_SIZE / 2 + Math.sin(rad) * b.r}
-                      stroke="#d1d5db" strokeWidth="1" strokeDasharray="4 4"
-                    />
-                  )
-                })}
-              </svg>
-
-              {/* Centre logo — gradient ring */}
-              <div
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
-                           rounded-full flex items-center justify-center"
-                style={{
-                  width: '160px', height: '160px', zIndex: 20,
-                  background: 'linear-gradient(135deg, #3b82f6 0%, #7c3aed 60%, #3b82f6 100%)',
-                  padding: '4px',
-                }}
-              >
-                <div className="w-full h-full rounded-full bg-white flex items-center justify-center shadow-lg">
-                  <img src="/logo.jpeg" alt="JK Cloud" className="w-32 h-32 rounded-full object-cover" />
-                </div>
-              </div>
-
-              {/* Service badges — z-30 so they're always above the centre circle */}
-              {BADGES.map((b, i) => {
-                const { left, top } = badgePos(b.angle, b.r)
-                const Icon = b.icon
-                return (
-                  <motion.div
-                    key={b.angle}
-                    animate={{ y: [0, -8, 0] }}
-                    transition={{ duration: 3 + i * 0.5, repeat: Infinity, ease: 'easeInOut', delay: i * 0.35 }}
-                    className="absolute flex items-center gap-2.5 bg-white rounded-2xl shadow-xl
-                               px-3 py-2.5 border border-slate-100"
-                    style={{
-                      left: `${left}%`,
-                      top:  `${top}%`,
-                      transform: 'translate(-50%, -50%)',
-                      zIndex: 30,
-                    }}
-                  >
-                    <div
-                      className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 text-base"
-                      style={{ background: b.bg, color: b.color }}
-                    >
-                      <Icon />
-                    </div>
-                    <span className="text-xs font-bold text-slate-700 leading-snug whitespace-pre-line">
-                      {b.label}
-                    </span>
-                  </motion.div>
-                )
-              })}
-            </div>
-          </motion.div>
+          {/* ── Right: Video ── */}
+          <div className="flex items-center justify-center lg:justify-end">
+            <HeroVideo />
+          </div>
 
         </div>
       </div>
