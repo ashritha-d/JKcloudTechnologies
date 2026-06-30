@@ -44,7 +44,7 @@ export default function Navbar() {
         <a href="#home" onClick={() => handleNav('#home')} className="flex items-center gap-3">
           <img src="/logo.jpeg" alt="JK Cloud" className="w-11 h-11 rounded-full object-cover border-2 border-primary-500/30" />
           <span className="text-xl font-extrabold text-slate-900 tracking-tight">
-            JK <span className="text-primary-500">Cloud</span>
+            JK <span className="text-primary-500">Cloud Technologies</span>
           </span>
         </a>
 
