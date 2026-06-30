@@ -54,7 +54,7 @@ export default function Navbar() {
             <li key={l.href}>
               <button
                 onClick={() => handleNav(l.href)}
-                className={`px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200
+                className={`px-3 py-2 rounded-lg text-lg font-bold transition-all duration-200
                   ${active === l.href.slice(1)
                     ? 'text-primary-500 bg-primary-500/8'
                     : 'text-slate-600 hover:text-primary-500 hover:bg-primary-500/6'
@@ -100,7 +100,7 @@ export default function Navbar() {
                 <li key={l.href}>
                   <button
                     onClick={() => handleNav(l.href)}
-                    className="w-full text-left px-4 py-2.5 rounded-xl text-sm font-medium
+                    className="w-full text-left px-4 py-2.5 rounded-xl text-lg font-bold
                                text-slate-600 hover:text-primary-500 hover:bg-primary-500/6 transition-all"
                   >
                     {l.label}

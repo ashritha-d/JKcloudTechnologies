@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>JK Cloud Technologies – Services Brochure</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Poppins',sans-serif;background:#d4dbe8;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+.print-btn{display:block;margin:16px auto;padding:10px 28px;background:linear-gradient(135deg,#1d4ed8,#7c3aed);color:#fff;font-family:'Poppins',sans-serif;font-size:14px;font-weight:600;border:none;border-radius:50px;cursor:pointer;box-shadow:0 4px 16px rgba(29,78,216,.35);}
+@media print{.print-btn{display:none!important;}body{background:#fff;}.page{box-shadow:none!important;margin:0!important;}}
+@page{size:A4 portrait;margin:0;}
+
+.page{
+  width:210mm;height:297mm;
+  background:#fff;margin:0 auto;
+  overflow:hidden;position:relative;
+  display:flex;flex-direction:column;
+  box-shadow:0 8px 40px rgba(0,0,0,.2);
+}
+
+/* HEADER */
+.hdr{
+  background:linear-gradient(135deg,#050d1f 0%,#0f2d6e 48%,#1e1b4b 100%);
+  padding:7mm 9mm 6mm;flex-shrink:0;position:relative;overflow:hidden;
+}
+.hdr::before{content:'';position:absolute;top:-60px;right:-40px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(99,179,237,.2),transparent 65%);}
+.hdr::after{content:'';position:absolute;bottom:-35px;left:40%;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,rgba(167,139,250,.16),transparent 65%);}
+.hdr-top{display:flex;align-items:flex-start;justify-content:space-between;gap:6mm;position:relative;z-index:1;}
+.brand{display:flex;align-items:center;gap:10px;}
+.logo-ring{width:50px;height:50px;border-radius:50%;background:linear-gradient(135deg,#3b82f6,#7c3aed);padding:2.5px;flex-shrink:0;}
+.logo-ring img{width:100%;height:100%;border-radius:50%;object-fit:cover;display:block;}
+.bname{color:#fff;font-size:16px;font-weight:900;letter-spacing:.01em;}
+.bname em{color:#60a5fa;font-style:normal;}
+.btag{color:rgba(147,197,253,.58);font-size:7px;letter-spacing:.12em;text-transform:uppercase;margin-top:1px;}
+.stat-row{display:flex;gap:5px;flex-wrap:wrap;justify-content:flex-end;margin-top:3px;}
+.stat-chip{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:4px 9px;color:#fff;font-size:7.5px;font-weight:700;white-space:nowrap;}
+.hdr-title{color:#fff;font-size:21px;font-weight:900;line-height:1.18;margin-top:5.5mm;position:relative;z-index:1;}
+.hdr-title em{background:linear-gradient(90deg,#60a5fa,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-style:normal;}
+.hdr-sub{color:rgba(255,255,255,.42);font-size:7.5px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;margin-top:3px;position:relative;z-index:1;}
+
+/* SERVICE STRIP */
+.strip{background:linear-gradient(90deg,#1d4ed8 0%,#7c3aed 100%);padding:5px 9mm;display:flex;gap:0;flex-shrink:0;overflow:hidden;}
+.strip-item{color:rgba(255,255,255,.78);font-size:7.5px;font-weight:600;padding:0 10px;border-right:1px solid rgba(255,255,255,.22);white-space:nowrap;letter-spacing:.04em;}
+.strip-item:last-child{border-right:none;}
+
+/* SERVICES */
+.svc-wrap{padding:4.5mm 8mm 3.5mm;flex:1;display:flex;flex-direction:column;min-height:0;}
+.eyebrow{font-size:7.5px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#3b82f6;margin-bottom:1.5mm;}
+.sec-h{font-size:13.5px;font-weight:800;color:#0f172a;margin-bottom:3.5mm;}
+.grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:4mm;flex:1;}
+.card{border-radius:10px;border:1.5px solid #e2e8f0;box-shadow:0 2px 10px rgba(0,0,0,.07);overflow:hidden;display:flex;flex-direction:column;}
+.ct{padding:4mm 4mm 3mm;display:flex;align-items:center;gap:9px;border-bottom:1px solid #f1f5f9;flex-shrink:0;}
+.ci{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:19px;flex-shrink:0;}
+.cn{font-size:10px;font-weight:800;line-height:1.25;}
+.cs{font-size:7px;color:#64748b;margin-top:1px;font-weight:500;}
+.cl{padding:3mm 4mm 4mm;flex:1;}
+.ci2{display:flex;align-items:flex-start;gap:5px;margin-bottom:3px;}
+.cd{width:12px;height:12px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:7px;color:#fff;flex-shrink:0;margin-top:1px;}
+.ct2{font-size:7.5px;color:#374151;line-height:1.45;}
+
+.p1 .ct{border-top:3.5px solid #3b82f6;} .p1 .ci{background:linear-gradient(135deg,#dbeafe,#bfdbfe);} .p1 .cn{color:#1d4ed8;} .p1 .cd{background:#3b82f6;}
+.p2 .ct{border-top:3.5px solid #7c3aed;} .p2 .ci{background:linear-gradient(135deg,#ede9fe,#ddd6fe);} .p2 .cn{color:#7c3aed;} .p2 .cd{background:#7c3aed;}
+.p3 .ct{border-top:3.5px solid #10b981;} .p3 .ci{background:linear-gradient(135deg,#dcfce7,#bbf7d0);} .p3 .cn{color:#059669;} .p3 .cd{background:#10b981;}
+.p4 .ct{border-top:3.5px solid #f97316;} .p4 .ci{background:linear-gradient(135deg,#ffedd5,#fed7aa);} .p4 .cn{color:#c2410c;} .p4 .cd{background:#f97316;}
+.p5 .ct{border-top:3.5px solid #ec4899;} .p5 .ci{background:linear-gradient(135deg,#fce7f3,#fbcfe8);} .p5 .cn{color:#be185d;} .p5 .cd{background:#ec4899;}
+.p6 .ct{border-top:3.5px solid #0ea5e9;} .p6 .ci{background:linear-gradient(135deg,#e0f2fe,#bae6fd);} .p6 .cn{color:#0284c7;} .p6 .cd{background:#0ea5e9;}
+
+/* WHY US */
+.why{background:linear-gradient(135deg,#1d4ed8,#7c3aed);padding:4mm 8mm;flex-shrink:0;}
+.wlbl{color:rgba(255,255,255,.58);font-size:7px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;margin-bottom:2.5mm;}
+.wchips{display:flex;flex-wrap:wrap;gap:5px;}
+.wchip{background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.22);border-radius:20px;padding:4px 11px;color:#fff;font-size:7.5px;font-weight:600;display:flex;align-items:center;gap:4px;}
+
+/* FOOTER */
+.ftr{background:linear-gradient(135deg,#060c1a,#0e1c3d,#170a30);padding:4mm 8mm 3.5mm;flex-shrink:0;}
+.frow{display:flex;align-items:center;justify-content:space-between;gap:5mm;}
+.ftitle{color:#fff;font-size:12px;font-weight:800;line-height:1.3;margin-bottom:2px;}
+.ftitle em{color:#60a5fa;font-style:normal;}
+.fsub{color:rgba(255,255,255,.38);font-size:7px;}
+.fbtns{display:flex;gap:5px;flex-shrink:0;}
+.fbtn{display:flex;align-items:center;gap:5px;padding:5.5px 10px;border-radius:20px;font-family:'Poppins',sans-serif;font-size:7px;font-weight:600;border:none;cursor:pointer;white-space:nowrap;}
+.fc{background:linear-gradient(135deg,#10b981,#059669);color:#fff;}
+.fe{background:#fff;color:#1e3a8a;}
+.fw{background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.25)!important;}
+.qrb{width:48px;height:48px;border-radius:8px;background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.18);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;flex-shrink:0;}
+.qrp{width:32px;height:32px;border-radius:3px;background:repeating-linear-gradient(0deg,rgba(255,255,255,.13) 0,rgba(255,255,255,.13) 2px,transparent 2px,transparent 5px),repeating-linear-gradient(90deg,rgba(255,255,255,.13) 0,rgba(255,255,255,.13) 2px,transparent 2px,transparent 5px);}
+.qrl{font-size:5.5px;color:rgba(255,255,255,.33);}
+.fcopy{border-top:1px solid rgba(255,255,255,.07);margin-top:2.5mm;padding-top:2mm;text-align:center;color:rgba(255,255,255,.18);font-size:6.5px;}
+</style>
+</head>
+<body>
+
+<button class="print-btn" onclick="window.print()">🖨 Print / Save as PDF</button>
+
+<div class="page">
+
+  <div class="hdr">
+    <div class="hdr-top">
+      <div class="brand">
+        <div class="logo-ring"><img src="logo.jpeg" alt="JK" onerror="this.parentElement.style.background='linear-gradient(135deg,#3b82f6,#7c3aed)';this.style.display='none'"></div>
+        <div>
+          <div class="bname">JK <em>Cloud Technologies</em></div>
+          <div class="btag">Web &amp; Cloud Solutions · Hyderabad, India</div>
+        </div>
+      </div>
+      <div class="stat-row">
+        <div class="stat-chip">🏆 200+ Projects</div>
+        <div class="stat-chip">👥 100+ Clients</div>
+        <div class="stat-chip">⭐ 100% Satisfaction</div>
+        <div class="stat-chip">🚀 5+ Years</div>
+      </div>
+    </div>
+    <div class="hdr-title">Digital Solutions That<br><em>Grow Your Business</em></div>
+    <div class="hdr-sub">Premium Technology Services · Built for Modern Businesses</div>
+  </div>
+
+  <div class="strip">
+    <div class="strip-item">🌐 Website Development</div>
+    <div class="strip-item">🤖 AI Solutions</div>
+    <div class="strip-item">📱 Mobile Apps</div>
+    <div class="strip-item">☁️ Cloud Services</div>
+    <div class="strip-item">🎨 UI/UX Design</div>
+    <div class="strip-item">📣 Digital Marketing</div>
+  </div>
+
+  <div class="svc-wrap">
+    <div class="eyebrow">Our Expertise</div>
+    <div class="sec-h">What We Build For You</div>
+    <div class="grid">
+
+      <div class="card p1">
+        <div class="ct"><div class="ci">🌐</div><div><div class="cn">Website Development</div><div class="cs">Full Stack · CMS · E-Commerce</div></div></div>
+        <div class="cl">
+          <div class="ci2"><div class="cd">✓</div><div class="ct2">Business Websites</div></div>
+          <div class="ci2"><div class="cd">✓</div><div class="ct2">Portfolio Websites</div></div>
+          <div class="ci2"><div class="cd">✓</div><div class="ct2">Corporate Websites</div></div>
+          <div class="ci2"><div class="cd">✓</div><div class="ct2">Landing Pages</div></div>
+          <div class="ci2"><div class="cd">✓</div><div class="ct2">E-Commerce Stores</div></div>
+          <div class="ci2"><div class="cd">✓</div><div class="ct2">Custom Web Applications</div></div>
+        </div>
+      </div>
+
+      <div class="card p2">
+        <div class="ct"><div class="ci">🤖</div><div><div class="cn">AI Solutions</div><div class="cs">Intelligent Automation</div></div></div>
+        <div class="cl">
+          <div class="ci2"><div class="cd">✓</div><div class="ct2">AI Chatbots</div></div>
+          <div class="ci2"><div class="cd">✓</div><div class="ct2">AI Automation</div></div>
+          <div class="ci2"><div class="cd">✓</div><div class="ct2">AI Integrations</div></div>
+          <div class="ci2"><div class="cd">✓</div><div class="ct2">AI Assistants</div></div>
+          <div class="ci2"><div class="cd">✓</div><div class="ct2">Smart Search</div></div>
+          <div class="ci2"><div class="cd">✓</div><div class="ct2">Workflow Automation</div></div>
+        </div>
+      </div>
+
+      <div class="card p3">
+        <div class="ct"><div class="ci">📱</div><div><div class="cn">Mobile App Development</div><div class="cs">Android · iOS · Cross-Platform</div></div></div>
+        <div class="cl">
+          <div class="ci2"><div class="cd">✓</div><div class="ct2">Android Apps</div></div>
+          <div class="ci2"><div class="cd">✓</div><div class="ct2">iOS Apps</div></div>
+          <div class="ci2"><div class="cd">✓</div><div class="ct2">Flutter Apps</div></div>
+          <div class="ci2"><div class="cd">✓</div><div class="ct2">React Native Apps</div></div>
+          <div class="ci2"><div class="cd">✓</div><div class="ct2">App UI Design</div></div>
+          <div class="ci2"><div class="cd">✓</div><div class="ct2">App Store Deployment</div></div>
+        </div>
+      </div>
+
+      <div class="card p4">
+        <div class="ct"><div class="ci">☁️</div><div><div class="cn">Cloud Services</div><div class="cs">Infrastructure &amp; DevOps</div></div></div>
+        <div class="cl">
+          <div class="ci2"><div class="cd">✓</div><div class="ct2">Cloud Deployment</div></div>
+          <div class="ci2"><div class="cd">✓</div><div class="ct2">Cloud Migration</div></div>
+          <div class="ci2"><div class="cd">✓</div><div class="ct2">Hosting Setup</div></div>
+          <div class="ci2"><div class="cd">✓</div><div class="ct2">DevOps Solutions</div></div>
+          <div class="ci2"><div class="cd">✓</div><div class="ct2">Server Management</div></div>
+          <div class="ci2"><div class="cd">✓</div><div class="ct2">Scalability Solutions</div></div>
+        </div>
+      </div>
+
+      <div class="card p5">
+        <div class="ct"><div class="ci">🎨</div><div><div class="cn">UI/UX Design</div><div class="cs">Creative Digital Experiences</div></div></div>
+        <div class="cl">
+          <div class="ci2"><div class="cd">✓</div><div class="ct2">Modern Interfaces</div></div>
+          <div class="ci2"><div class="cd">✓</div><div class="ct2">Dashboard Design</div></div>
+          <div class="ci2"><div class="cd">✓</div><div class="ct2">Responsive Design</div></div>
+          <div class="ci2"><div class="cd">✓</div><div class="ct2">Wireframes</div></div>
+          <div class="ci2"><div class="cd">✓</div><div class="ct2">Prototypes</div></div>
+          <div class="ci2"><div class="cd">✓</div><div class="ct2">Brand Identity</div></div>
+        </div>
+      </div>
+
+      <div class="card p6">
+        <div class="ct"><div class="ci">📣</div><div><div class="cn">Digital Marketing</div><div class="cs">Growth &amp; Online Visibility</div></div></div>
+        <div class="cl">
+          <div class="ci2"><div class="cd">✓</div><div class="ct2">SEO Optimization</div></div>
+          <div class="ci2"><div class="cd">✓</div><div class="ct2">Google Ads</div></div>
+          <div class="ci2"><div class="cd">✓</div><div class="ct2">Social Media Marketing</div></div>
+          <div class="ci2"><div class="cd">✓</div><div class="ct2">Content Marketing</div></div>
+          <div class="ci2"><div class="cd">✓</div><div class="ct2">Branding</div></div>
+          <div class="ci2"><div class="cd">✓</div><div class="ct2">Analytics &amp; Reporting</div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="why">
+    <div class="wlbl">Why Choose JK Cloud Technologies</div>
+    <div class="wchips">
+      <div class="wchip">👨‍💻 Professional Team</div>
+      <div class="wchip">💰 Affordable Pricing</div>
+      <div class="wchip">⚡ Fast Delivery</div>
+      <div class="wchip">🔍 SEO Friendly</div>
+      <div class="wchip">📱 Mobile Responsive</div>
+      <div class="wchip">🔒 Secure Solutions</div>
+      <div class="wchip">🛠 Modern Technologies</div>
+      <div class="wchip">🕐 24/7 Support</div>
+    </div>
+  </div>
+
+  <div class="ftr">
+    <div class="frow">
+      <div>
+        <div class="ftitle">Let's Build Your <em>Digital Future</em> Together!</div>
+        <div class="fsub">Contact us today for a free consultation — no obligation, just great advice.</div>
+      </div>
+      <div class="fbtns">
+        <button class="fbtn fc">📞 +91 6304190711</button>
+        <button class="fbtn fe">📧 info@jkcloudtech.com</button>
+        <button class="fbtn fw">🌐 j-kcloud-technologies.vercel.app</button>
+      </div>
+      <div class="qrb"><div class="qrp"></div><div class="qrl">Scan QR</div></div>
+    </div>
+    <div class="fcopy">© 2025 JK Cloud Technologies. All Rights Reserved. | Hyderabad, Telangana, India | Innovate · Transform · Scale</div>
+  </div>
+
+</div>
+</body>
+</html>

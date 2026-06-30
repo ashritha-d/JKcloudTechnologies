@@ -67,17 +67,6 @@ export default function WhyUs() {
           })}
         </div>
 
-        {/* Big stats row */}
-        <motion.div
-          initial={{ opacity:0, y:30 }}
-          whileInView={{ opacity:1, y:0 }}
-          viewport={{ once:true }}
-          transition={{ duration:0.6, delay:0.2 }}
-          className="mt-16 rounded-2xl overflow-hidden grid grid-cols-2 md:grid-cols-4"
-          style={{ background:'linear-gradient(135deg,#1a56db,#7c3aed)' }}
-        >
-          {bigStats.map(s => <BigStat key={s.label} {...s} />)}
-        </motion.div>
       </div>
     </section>
   )

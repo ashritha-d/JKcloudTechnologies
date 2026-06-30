@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>JK Cloud Technologies – Pricing Brochure</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Poppins',sans-serif;background:#d4dbe8;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+.print-btn{display:block;margin:16px auto;padding:10px 28px;background:linear-gradient(135deg,#1d4ed8,#7c3aed);color:#fff;font-family:'Poppins',sans-serif;font-size:14px;font-weight:600;border:none;border-radius:50px;cursor:pointer;box-shadow:0 4px 16px rgba(29,78,216,.35);}
+@media print{.print-btn{display:none!important;}body{background:#fff;}.page{box-shadow:none!important;margin:0!important;}}
+@page{size:A4 portrait;margin:0;}
+
+.page{
+  width:210mm;height:297mm;
+  background:#fff;margin:0 auto;
+  overflow:hidden;position:relative;
+  display:flex;flex-direction:column;
+  box-shadow:0 8px 40px rgba(0,0,0,.2);
+}
+
+/* HEADER */
+.hdr{
+  background:linear-gradient(135deg,#050d1f 0%,#0f2d6e 48%,#1e1b4b 100%);
+  padding:6.5mm 9mm 5.5mm;flex-shrink:0;position:relative;overflow:hidden;
+}
+.hdr::before{content:'';position:absolute;top:-50px;right:-40px;width:180px;height:180px;border-radius:50%;background:radial-gradient(circle,rgba(99,179,237,.2),transparent 65%);}
+.hdr::after{content:'';position:absolute;bottom:-30px;left:35%;width:140px;height:140px;border-radius:50%;background:radial-gradient(circle,rgba(167,139,250,.16),transparent 65%);}
+.hdr-top{display:flex;align-items:center;justify-content:space-between;gap:6mm;position:relative;z-index:1;margin-bottom:4mm;}
+.brand{display:flex;align-items:center;gap:10px;}
+.logo-ring{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#3b82f6,#7c3aed);padding:2.5px;flex-shrink:0;}
+.logo-ring img{width:100%;height:100%;border-radius:50%;object-fit:cover;display:block;}
+.bname{color:#fff;font-size:16px;font-weight:900;}
+.bname em{color:#60a5fa;font-style:normal;}
+.btag{color:rgba(147,197,253,.58);font-size:7px;letter-spacing:.12em;text-transform:uppercase;margin-top:1px;}
+.badge-row{display:flex;gap:5px;}
+.badge{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:4px 9px;color:#fff;font-size:7.5px;font-weight:700;white-space:nowrap;}
+.hdr-h{color:#fff;font-size:18px;font-weight:900;line-height:1.2;position:relative;z-index:1;}
+.hdr-h em{background:linear-gradient(90deg,#60a5fa,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-style:normal;}
+.hdr-s{color:rgba(255,255,255,.42);font-size:7.5px;letter-spacing:.08em;margin-top:3px;position:relative;z-index:1;}
+
+/* PRICING SECTION */
+.pricing-wrap{padding:4.5mm 8mm 3mm;flex-shrink:0;}
+.eyebrow{font-size:7.5px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#3b82f6;margin-bottom:1.5mm;}
+.sec-h{font-size:13px;font-weight:800;color:#0f172a;margin-bottom:3.5mm;}
+.plans{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:4mm;}
+.plan{border-radius:11px;border:1.5px solid #e2e8f0;box-shadow:0 3px 14px rgba(0,0,0,.09);overflow:hidden;position:relative;}
+.plan.hot{border-color:#7c3aed;box-shadow:0 4px 18px rgba(124,58,237,.22);}
+.hot-badge{position:absolute;top:8px;right:8px;background:linear-gradient(135deg,#7c3aed,#3b82f6);color:#fff;font-size:6px;font-weight:700;padding:2px 7px;border-radius:10px;text-transform:uppercase;letter-spacing:.08em;}
+.plan-hd{padding:9px 10px 8px;text-align:center;}
+.plan-icon{font-size:24px;display:block;margin-bottom:5px;}
+.plan-name{font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.06em;}
+.plan-desc{font-size:7px;font-weight:500;margin-top:1px;opacity:.7;}
+.plan-price{font-size:18px;font-weight:900;margin:6px 0 1px;}
+.plan-note{font-size:6.5px;opacity:.65;}
+.plan-for{padding:5px 10px;border-top:1px dashed rgba(0,0,0,.09);text-align:center;}
+.pf-lbl{font-size:6.5px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:2px;}
+.pf-txt{font-size:7px;line-height:1.5;color:#475569;}
+.plan-feats{padding:6px 10px 9px;}
+.pfl{font-size:6.5px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px;}
+.feat{display:flex;align-items:flex-start;gap:4px;margin-bottom:2.5px;}
+.fdot{width:11px;height:11px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:6.5px;color:#fff;flex-shrink:0;margin-top:.5px;}
+.ftxt{font-size:7px;color:#334155;line-height:1.4;}
+
+/* plan colors */
+.s1 .plan-hd{background:linear-gradient(135deg,#f0f9ff,#dbeafe);}
+.s1 .plan-name{color:#1d4ed8;} .s1 .plan-price{color:#1d4ed8;} .s1 .pf-lbl{color:#1d4ed8;} .s1 .pfl{color:#1d4ed8;} .s1 .fdot{background:#3b82f6;}
+
+.s2 .plan-hd{background:linear-gradient(135deg,#f0fdf4,#dcfce7);}
+.s2 .plan-name{color:#15803d;} .s2 .plan-price{color:#15803d;} .s2 .pf-lbl{color:#15803d;} .s2 .pfl{color:#15803d;} .s2 .fdot{background:#10b981;}
+
+.s3 .plan-hd{background:linear-gradient(135deg,#faf5ff,#ede9fe);}
+.s3 .plan-name{color:#7c3aed;} .s3 .plan-price{color:#7c3aed;} .s3 .pf-lbl{color:#7c3aed;} .s3 .pfl{color:#7c3aed;} .s3 .fdot{background:#7c3aed;}
+
+.s4 .plan-hd{background:linear-gradient(135deg,#0a1628,#1e3a8a);}
+.s4 .plan-name{color:#93c5fd;} .s4 .plan-price{color:#60a5fa;} .s4 .plan-desc{color:rgba(255,255,255,.5);}
+.s4 .plan-note{color:rgba(255,255,255,.45);} .s4 .pf-lbl{color:#93c5fd;} .s4 .pfl{color:#93c5fd;} .s4 .fdot{background:#60a5fa;}
+.s4 .plan-for{border-color:rgba(255,255,255,.12);background:#0f172a;} .s4 .pf-txt{color:rgba(255,255,255,.5);}
+.s4 .plan-feats{background:#0f172a;} .s4 .ftxt{color:rgba(255,255,255,.72);}
+
+/* ADDL SERVICES */
+.addl-wrap{padding:0 8mm 3mm;flex-shrink:0;}
+.addl-label{font-size:7.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#7c3aed;margin-bottom:2.5mm;}
+.addl-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:3.5mm;}
+.addl-card{border-radius:9px;border:1.5px solid #e2e8f0;padding:7px 7px 8px;text-align:center;box-shadow:0 1px 6px rgba(0,0,0,.07);}
+.addl-icon{font-size:18px;display:block;margin-bottom:4px;}
+.addl-name{font-size:7px;font-weight:700;color:#0f172a;line-height:1.3;margin-bottom:2px;}
+.addl-price{font-size:7px;font-weight:600;color:#7c3aed;}
+
+/* NOTES */
+.notes-wrap{padding:0 8mm 3mm;flex-shrink:0;}
+.notes-box{background:linear-gradient(135deg,#fffbeb,#fef3c7);border:1.5px solid #f59e0b;border-radius:10px;padding:5mm 5mm 4.5mm;}
+.notes-title{font-size:9.5px;font-weight:800;color:#92400e;margin-bottom:3.5mm;display:flex;align-items:center;gap:6px;}
+.notes-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.5px 10px;}
+.note-item{display:flex;align-items:flex-start;gap:5px;}
+.note-num{font-size:7.5px;font-weight:700;color:#b45309;min-width:16px;}
+.note-txt{font-size:7.5px;color:#78350f;line-height:1.5;}
+
+/* WHY + FOOTER */
+.why{background:linear-gradient(90deg,#1d4ed8,#7c3aed);padding:3.5mm 8mm;flex-shrink:0;}
+.why-lbl{color:rgba(255,255,255,.58);font-size:6.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:2mm;}
+.why-row{display:flex;gap:6px;flex-wrap:wrap;}
+.wy{background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:3.5px 10px;color:#fff;font-size:7px;font-weight:600;}
+
+.ftr{background:linear-gradient(135deg,#060c1a,#0e1c3d,#170a30);padding:4mm 8mm 3mm;flex-shrink:0;}
+.frow{display:flex;align-items:center;justify-content:space-between;gap:5mm;}
+.ftitle{color:#fff;font-size:12px;font-weight:800;line-height:1.25;margin-bottom:2px;}
+.ftitle em{color:#60a5fa;font-style:normal;}
+.fsub{color:rgba(255,255,255,.38);font-size:7px;}
+.fbtns{display:flex;gap:5px;flex-shrink:0;}
+.fbtn{display:flex;align-items:center;gap:4px;padding:5px 9px;border-radius:20px;font-family:'Poppins',sans-serif;font-size:7px;font-weight:600;border:none;cursor:pointer;white-space:nowrap;}
+.fc{background:linear-gradient(135deg,#10b981,#059669);color:#fff;}
+.fe{background:#fff;color:#1e3a8a;}
+.fw{background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.25)!important;}
+.qrb{width:46px;height:46px;border-radius:8px;background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.18);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;flex-shrink:0;}
+.qrp{width:30px;height:30px;border-radius:3px;background:repeating-linear-gradient(0deg,rgba(255,255,255,.13) 0,rgba(255,255,255,.13) 2px,transparent 2px,transparent 5px),repeating-linear-gradient(90deg,rgba(255,255,255,.13) 0,rgba(255,255,255,.13) 2px,transparent 2px,transparent 5px);}
+.qrl{font-size:5.5px;color:rgba(255,255,255,.33);}
+.fcopy{border-top:1px solid rgba(255,255,255,.07);margin-top:2.5mm;padding-top:2mm;text-align:center;color:rgba(255,255,255,.18);font-size:6.5px;}
+</style>
+</head>
+<body>
+
+<button class="print-btn" onclick="window.print()">🖨 Print / Save as PDF</button>
+
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="hdr">
+    <div class="hdr-top">
+      <div class="brand">
+        <div class="logo-ring"><img src="logo.jpeg" alt="JK" onerror="this.parentElement.style.background='linear-gradient(135deg,#3b82f6,#7c3aed)';this.style.display='none'"></div>
+        <div>
+          <div class="bname">JK <em>Cloud Technologies</em></div>
+          <div class="btag">Web &amp; Cloud Solutions · Hyderabad, India</div>
+        </div>
+      </div>
+      <div class="badge-row">
+        <div class="badge">✅ 100% Satisfaction</div>
+        <div class="badge">⚡ On-Time Delivery</div>
+        <div class="badge">📱 Mobile Responsive</div>
+      </div>
+    </div>
+    <div class="hdr-h">Affordable Website &amp; Software<br><em>Development Packages</em></div>
+    <div class="hdr-s">Transparent Pricing · No Hidden Charges · Starting from ₹4,999 only</div>
+  </div>
+
+  <!-- PRICING -->
+  <div class="pricing-wrap">
+    <div class="eyebrow">Choose Your Plan</div>
+    <div class="sec-h">Website Development Packages</div>
+    <div class="plans">
+
+      <div class="plan s1">
+        <div class="plan-hd">
+          <span class="plan-icon">🚀</span>
+          <div class="plan-name">Starter</div>
+          <div class="plan-desc">Landing Page / Portfolio</div>
+          <div class="plan-price">₹4,999<span style="font-size:10px;font-weight:500;">/-</span></div>
+          <div class="plan-note">onwards*</div>
+        </div>
+        <div class="plan-for">
+          <div class="pf-lbl">Perfect For</div>
+          <div class="pf-txt">Startups · Campaigns<br>Events · Personal Brands</div>
+        </div>
+        <div class="plan-feats">
+          <div class="pfl">Includes</div>
+          <div class="feat"><div class="fdot">✓</div><div class="ftxt">Responsive Design</div></div>
+          <div class="feat"><div class="fdot">✓</div><div class="ftxt">Contact Form</div></div>
+          <div class="feat"><div class="fdot">✓</div><div class="ftxt">Basic SEO Setup</div></div>
+          <div class="feat"><div class="fdot">✓</div><div class="ftxt">WhatsApp Button</div></div>
+          <div class="feat"><div class="fdot">✓</div><div class="ftxt">Mobile Friendly</div></div>
+          <div class="feat"><div class="fdot">✓</div><div class="ftxt">1 Revision</div></div>
+          <div class="feat"><div class="fdot">✓</div><div class="ftxt">15 Days Support</div></div>
+        </div>
+      </div>
+
+      <div class="plan s2">
+        <div class="plan-hd">
+          <span class="plan-icon">🏢</span>
+          <div class="plan-name">Business</div>
+          <div class="plan-desc">Up to 5 Pages</div>
+          <div class="plan-price">₹9,999<span style="font-size:10px;font-weight:500;">/-</span></div>
+          <div class="plan-note">onwards*</div>
+        </div>
+        <div class="plan-for">
+          <div class="pf-lbl">Perfect For</div>
+          <div class="pf-txt">Small Businesses<br>Local Brands · Freelancers</div>
+        </div>
+        <div class="plan-feats">
+          <div class="pfl">Includes</div>
+          <div class="feat"><div class="fdot">✓</div><div class="ftxt">Up to 5 Pages</div></div>
+          <div class="feat"><div class="fdot">✓</div><div class="ftxt">Admin Panel</div></div>
+          <div class="feat"><div class="fdot">✓</div><div class="ftxt">Gallery Section</div></div>
+          <div class="feat"><div class="fdot">✓</div><div class="ftxt">SEO Setup</div></div>
+          <div class="feat"><div class="fdot">✓</div><div class="ftxt">WhatsApp Integration</div></div>
+          <div class="feat"><div class="fdot">✓</div><div class="ftxt">Google Map</div></div>
+          <div class="feat"><div class="fdot">✓</div><div class="ftxt">1 Month Support</div></div>
+        </div>
+      </div>
+
+      <div class="plan s3 hot">
+        <div class="hot-badge">⭐ Popular</div>
+        <div class="plan-hd">
+          <span class="plan-icon">💎</span>
+          <div class="plan-name">Professional</div>
+          <div class="plan-desc">Custom Website</div>
+          <div class="plan-price">₹19,999<span style="font-size:10px;font-weight:500;">/-</span></div>
+          <div class="plan-note">onwards*</div>
+        </div>
+        <div class="plan-for">
+          <div class="pf-lbl">Perfect For</div>
+          <div class="pf-txt">Growing Businesses<br>Agencies · Consultants</div>
+        </div>
+        <div class="plan-feats">
+          <div class="pfl">Includes</div>
+          <div class="feat"><div class="fdot">✓</div><div class="ftxt">Authentication System</div></div>
+          <div class="feat"><div class="fdot">✓</div><div class="ftxt">Dashboard / CMS</div></div>
+          <div class="feat"><div class="fdot">✓</div><div class="ftxt">Database Integration</div></div>
+          <div class="feat"><div class="fdot">✓</div><div class="ftxt">API Integration</div></div>
+          <div class="feat"><div class="fdot">✓</div><div class="ftxt">Performance Optimization</div></div>
+          <div class="feat"><div class="fdot">✓</div><div class="ftxt">Advanced SEO</div></div>
+          <div class="feat"><div class="fdot">✓</div><div class="ftxt">2 Months Support</div></div>
+        </div>
+      </div>
+
+      <div class="plan s4">
+        <div class="plan-hd">
+          <span class="plan-icon">👑</span>
+          <div class="plan-name">Enterprise</div>
+          <div class="plan-desc">Large Scale Applications</div>
+          <div class="plan-price" style="font-size:14px;line-height:1.3;">₹49,999<span style="font-size:9px;font-weight:500;">/-</span></div>
+          <div class="plan-note">onwards*</div>
+        </div>
+        <div class="plan-for">
+          <div class="pf-lbl">Perfect For</div>
+          <div class="pf-txt" style="color:rgba(255,255,255,.5);">Enterprises · SaaS<br>Multi-Branch Businesses</div>
+        </div>
+        <div class="plan-feats">
+          <div class="pfl">Includes</div>
+          <div class="feat"><div class="fdot">✓</div><div class="ftxt">AI Features</div></div>
+          <div class="feat"><div class="fdot">✓</div><div class="ftxt">Cloud Deployment</div></div>
+          <div class="feat"><div class="fdot">✓</div><div class="ftxt">Admin Panel</div></div>
+          <div class="feat"><div class="fdot">✓</div><div class="ftxt">Analytics Dashboard</div></div>
+          <div class="feat"><div class="fdot">✓</div><div class="ftxt">CRM Integration</div></div>
+          <div class="feat"><div class="fdot">✓</div><div class="ftxt">Payment Gateway</div></div>
+          <div class="feat"><div class="fdot">✓</div><div class="ftxt">Dedicated Support</div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ADDITIONAL SERVICES -->
+  <div class="addl-wrap">
+    <div class="addl-label">Additional Services — Available as Add-Ons</div>
+    <div class="addl-grid">
+      <div class="addl-card">
+        <span class="addl-icon">🤖</span>
+        <div class="addl-name">AI Chatbot</div>
+        <div class="addl-price">₹7,999+*</div>
+      </div>
+      <div class="addl-card">
+        <span class="addl-icon">📱</span>
+        <div class="addl-name">Mobile App</div>
+        <div class="addl-price">₹24,999+*</div>
+      </div>
+      <div class="addl-card">
+        <span class="addl-icon">🔧</span>
+        <div class="addl-name">Maintenance</div>
+        <div class="addl-price">₹2,999/mo*</div>
+      </div>
+      <div class="addl-card">
+        <span class="addl-icon">🔍</span>
+        <div class="addl-name">SEO Services</div>
+        <div class="addl-price">₹4,999/mo*</div>
+      </div>
+      <div class="addl-card">
+        <span class="addl-icon">☁️</span>
+        <div class="addl-name">Cloud Deploy</div>
+        <div class="addl-price">₹4,999+*</div>
+      </div>
+      <div class="addl-card">
+        <span class="addl-icon">🎨</span>
+        <div class="addl-name">Logo &amp; Branding</div>
+        <div class="addl-price">₹2,999+*</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- IMPORTANT NOTES -->
+  <div class="notes-wrap">
+    <div class="notes-box">
+      <div class="notes-title">⚠️ Conditions Apply — Important Notes</div>
+      <div class="notes-grid">
+        <div class="note-item"><span class="note-num">01.</span><span class="note-txt">Final pricing depends on actual project requirements &amp; scope.</span></div>
+        <div class="note-item"><span class="note-num">06.</span><span class="note-txt">50% advance payment required to initiate the project.</span></div>
+        <div class="note-item"><span class="note-num">02.</span><span class="note-txt">Prices shown are starting prices only, not fixed quotes.</span></div>
+        <div class="note-item"><span class="note-num">07.</span><span class="note-txt">Remaining 50% payment due before final deployment.</span></div>
+        <div class="note-item"><span class="note-num">03.</span><span class="note-txt">Custom features beyond the plan incur additional charges.</span></div>
+        <div class="note-item"><span class="note-num">08.</span><span class="note-txt">One month of free support included unless otherwise agreed.</span></div>
+        <div class="note-item"><span class="note-num">04.</span><span class="note-txt">Domain &amp; hosting charges may be separate unless specified.</span></div>
+        <div class="note-item"><span class="note-num">09.</span><span class="note-txt">GST (18%) applicable where required by Government norms.</span></div>
+        <div class="note-item"><span class="note-num">05.</span><span class="note-txt">Delivery timeline depends on project complexity &amp; feedback speed.</span></div>
+        <div class="note-item"><span class="note-num">10.</span><span class="note-txt">Prices subject to change — contact us for confirmed quotation.</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHY CHOOSE -->
+  <div class="why">
+    <div class="why-lbl">Why Clients Choose JK Cloud Technologies</div>
+    <div class="why-row">
+      <div class="wy">👨‍💻 Experienced Developers</div>
+      <div class="wy">🔬 Latest Technologies</div>
+      <div class="wy">🤖 AI Powered Solutions</div>
+      <div class="wy">🔒 Secure Applications</div>
+      <div class="wy">💰 Affordable Pricing</div>
+      <div class="wy">⏱ Timely Delivery</div>
+      <div class="wy">🎯 Dedicated Support</div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="ftr">
+    <div class="frow">
+      <div>
+        <div class="ftitle">Ready to Start Your <em>Dream Project?</em></div>
+        <div class="fsub">Contact JK Cloud Technologies today for a free consultation!</div>
+      </div>
+      <div class="fbtns">
+        <button class="fbtn fc">📞 +91 6304190711</button>
+        <button class="fbtn fe">📧 info@jkcloudtech.com</button>
+        <button class="fbtn fw">🌐 j-kcloud-technologies.vercel.app</button>
+      </div>
+      <div class="qrb"><div class="qrp"></div><div class="qrl">Scan QR</div></div>
+    </div>
+    <div class="fcopy">© 2025 JK Cloud Technologies. All Rights Reserved. | Hyderabad, Telangana, India | *Prices are starting estimates. Final price based on actual requirements.</div>
+  </div>
+
+</div>
+</body>
+</html>
