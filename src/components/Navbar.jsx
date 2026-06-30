@@ -6,7 +6,6 @@ const links = [
   { href: '#home',         label: 'Home' },
   { href: '#services',     label: 'Services' },
   { href: '#why-us',       label: 'Why Us' },
-  { href: '#contact',      label: 'Contact' },
 ]
 
 export default function Navbar() {
