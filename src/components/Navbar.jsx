@@ -4,11 +4,9 @@ import { FaBars, FaXmark } from 'react-icons/fa6'
 
 const links = [
   { href: '#home',         label: 'Home' },
-  { href: '#about',        label: 'About' },
   { href: '#services',     label: 'Services' },
-  { href: '#pricing',      label: 'Pricing' },
   { href: '#why-us',       label: 'Why Us' },
-  { href: '#process',      label: 'Process' },
+  { href: '#contact',      label: 'Contact' },
 ]
 
 export default function Navbar() {

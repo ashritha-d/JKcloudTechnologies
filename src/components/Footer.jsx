@@ -6,8 +6,9 @@ import {
 } from 'react-icons/fa6'
 
 const QUICK = [
-  { href:'#home', label:'Home' }, { href:'#about', label:'About' },
-  { href:'#services', label:'Services' }, { href:'#pricing', label:'Pricing' },
+  { href:'#home', label:'Home' },
+  { href:'#services', label:'Services' },
+  { href:'#why-us', label:'Why Us' },
   { href:'#contact', label:'Contact' },
 ]
 const SERVICES = ['Web Development','E-Commerce','Cloud Solutions','UI/UX Design','SEO Optimization','API Integration']
