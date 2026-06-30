@@ -7,148 +7,286 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Poppins',sans-serif;background:#d4dbe8;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
-.print-btn{display:block;margin:16px auto;padding:10px 28px;background:linear-gradient(135deg,#1d4ed8,#7c3aed);color:#fff;font-family:'Poppins',sans-serif;font-size:14px;font-weight:600;border:none;border-radius:50px;cursor:pointer;box-shadow:0 4px 16px rgba(29,78,216,.35);}
+body{font-family:'Poppins',sans-serif;background:#c8d0de;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+.print-btn{display:block;margin:16px auto;padding:10px 32px;background:linear-gradient(135deg,#1d4ed8,#7c3aed);color:#fff;font-family:'Poppins',sans-serif;font-size:14px;font-weight:600;border:none;border-radius:50px;cursor:pointer;box-shadow:0 4px 20px rgba(29,78,216,.4);}
 @media print{.print-btn{display:none!important;}body{background:#fff;}.page{box-shadow:none!important;margin:0!important;}}
 @page{size:A4 portrait;margin:0;}
 
 .page{
-  width:210mm;height:297mm;
-  background:#fff;margin:0 auto;
-  overflow:hidden;position:relative;
+  width:210mm;height:297mm;background:#fafcff;
+  margin:0 auto;overflow:hidden;position:relative;
   display:flex;flex-direction:column;
-  box-shadow:0 8px 40px rgba(0,0,0,.2);
+  box-shadow:0 12px 50px rgba(0,0,0,.25);
+  background-image:radial-gradient(circle at 1px 1px,rgba(59,130,246,.05) 1px,transparent 0);
+  background-size:18px 18px;
+  background-color:#fafcff;
 }
 
-/* HEADER */
-.hdr{
-  background:linear-gradient(135deg,#050d1f 0%,#0f2d6e 48%,#1e1b4b 100%);
-  padding:6.5mm 9mm 5.5mm;flex-shrink:0;position:relative;overflow:hidden;
+/* ══ HERO HEADER ══ */
+.hero{
+  flex-shrink:0;
+  background:linear-gradient(135deg,#050e24 0%,#0d2761 40%,#1a1060 75%,#050e24 100%);
+  padding:6mm 9mm 0;position:relative;overflow:hidden;
+  display:flex;align-items:stretch;gap:5mm;
 }
-.hdr::before{content:'';position:absolute;top:-50px;right:-40px;width:180px;height:180px;border-radius:50%;background:radial-gradient(circle,rgba(99,179,237,.2),transparent 65%);}
-.hdr::after{content:'';position:absolute;bottom:-30px;left:35%;width:140px;height:140px;border-radius:50%;background:radial-gradient(circle,rgba(167,139,250,.16),transparent 65%);}
-.hdr-top{display:flex;align-items:center;justify-content:space-between;gap:6mm;position:relative;z-index:1;margin-bottom:4mm;}
-.brand{display:flex;align-items:center;gap:10px;}
-.logo-ring{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#3b82f6,#7c3aed);padding:2.5px;flex-shrink:0;}
-.logo-ring img{width:100%;height:100%;border-radius:50%;object-fit:cover;display:block;}
-.bname{color:#fff;font-size:16px;font-weight:900;}
-.bname em{color:#60a5fa;font-style:normal;}
-.btag{color:rgba(147,197,253,.58);font-size:7px;letter-spacing:.12em;text-transform:uppercase;margin-top:1px;}
-.badge-row{display:flex;gap:5px;}
-.badge{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:4px 9px;color:#fff;font-size:7.5px;font-weight:700;white-space:nowrap;}
-.hdr-h{color:#fff;font-size:18px;font-weight:900;line-height:1.2;position:relative;z-index:1;}
-.hdr-h em{background:linear-gradient(90deg,#60a5fa,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-style:normal;}
-.hdr-s{color:rgba(255,255,255,.42);font-size:7.5px;letter-spacing:.08em;margin-top:3px;position:relative;z-index:1;}
+.hero::before{content:'';position:absolute;top:-70px;right:80px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(59,130,246,.2),transparent 65%);}
+.hero::after{content:'';position:absolute;bottom:-30px;left:25%;width:170px;height:170px;border-radius:50%;background:radial-gradient(circle,rgba(124,58,237,.18),transparent 65%);}
 
-/* PRICING SECTION */
-.pricing-wrap{padding:4.5mm 8mm 3mm;flex-shrink:0;}
-.eyebrow{font-size:7.5px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#3b82f6;margin-bottom:1.5mm;}
-.sec-h{font-size:13px;font-weight:800;color:#0f172a;margin-bottom:3.5mm;}
-.plans{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:4mm;}
-.plan{border-radius:11px;border:1.5px solid #e2e8f0;box-shadow:0 3px 14px rgba(0,0,0,.09);overflow:hidden;position:relative;}
-.plan.hot{border-color:#7c3aed;box-shadow:0 4px 18px rgba(124,58,237,.22);}
-.hot-badge{position:absolute;top:8px;right:8px;background:linear-gradient(135deg,#7c3aed,#3b82f6);color:#fff;font-size:6px;font-weight:700;padding:2px 7px;border-radius:10px;text-transform:uppercase;letter-spacing:.08em;}
-.plan-hd{padding:9px 10px 8px;text-align:center;}
-.plan-icon{font-size:24px;display:block;margin-bottom:5px;}
-.plan-name{font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.06em;}
-.plan-desc{font-size:7px;font-weight:500;margin-top:1px;opacity:.7;}
-.plan-price{font-size:18px;font-weight:900;margin:6px 0 1px;}
-.plan-note{font-size:6.5px;opacity:.65;}
-.plan-for{padding:5px 10px;border-top:1px dashed rgba(0,0,0,.09);text-align:center;}
-.pf-lbl{font-size:6.5px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:2px;}
-.pf-txt{font-size:7px;line-height:1.5;color:#475569;}
-.plan-feats{padding:6px 10px 9px;}
-.pfl{font-size:6.5px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px;}
+.hero-left{flex:0 0 58%;display:flex;flex-direction:column;justify-content:flex-start;padding-bottom:6mm;position:relative;z-index:2;}
+.brand-row{display:flex;align-items:center;gap:10px;margin-bottom:4mm;}
+.logo-wrap{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#3b82f6,#7c3aed);padding:2.5px;flex-shrink:0;}
+.logo-wrap img{width:100%;height:100%;border-radius:50%;object-fit:cover;display:block;}
+.brand-name{color:#fff;font-size:13.5px;font-weight:800;}
+.brand-name span{color:#60a5fa;}
+.brand-sub{color:rgba(147,197,253,.55);font-size:6.5px;letter-spacing:.12em;text-transform:uppercase;}
+.hero-label{font-size:7px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#60a5fa;margin-bottom:2mm;}
+.hero-h1{color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.04em;line-height:1.2;text-transform:uppercase;margin-bottom:1mm;}
+.hero-h2{font-size:20px;font-weight:900;line-height:1.1;text-transform:uppercase;margin-bottom:1.5mm;background:linear-gradient(90deg,#60a5fa,#a78bfa,#60a5fa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.hero-h3{color:rgba(255,255,255,.85);font-size:9px;font-weight:600;margin-bottom:4mm;}
+.hero-pills{display:flex;gap:5px;flex-wrap:wrap;}
+.hero-pill{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:3.5px 9px;color:rgba(255,255,255,.8);font-size:7px;font-weight:600;}
+.hero-right{flex:0 0 42%;display:flex;align-items:flex-end;position:relative;z-index:2;}
+.hero-right svg{width:100%;height:auto;display:block;}
+
+/* ══ TAGLINE BAR ══ */
+.tagbar{flex-shrink:0;background:linear-gradient(90deg,#1d4ed8,#7c3aed);padding:5px 9mm;display:flex;align-items:center;justify-content:space-between;}
+.tagbar-text{color:rgba(255,255,255,.85);font-size:8px;font-weight:600;letter-spacing:.04em;}
+.tagbar-badge{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);border-radius:12px;padding:2.5px 9px;color:#fff;font-size:7px;font-weight:700;}
+
+/* ══ PRICING ══ */
+.pricing-wrap{flex-shrink:0;padding:3.5mm 8mm 3mm;}
+.sec-eye{font-size:7px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#3b82f6;margin-bottom:1mm;}
+.sec-title{font-size:13px;font-weight:800;color:#0f172a;margin-bottom:3mm;}
+.plans{display:grid;grid-template-columns:repeat(4,1fr);gap:3.5mm;}
+.plan{border-radius:12px;border:1.5px solid #e2e8f0;box-shadow:0 3px 14px rgba(0,0,0,.09);overflow:hidden;position:relative;}
+.plan.hot{border-color:#7c3aed;box-shadow:0 4px 20px rgba(124,58,237,.22);}
+.hot-badge{position:absolute;top:8px;right:8px;background:linear-gradient(135deg,#7c3aed,#3b82f6);color:#fff;font-size:6px;font-weight:700;padding:2.5px 7px;border-radius:10px;text-transform:uppercase;letter-spacing:.06em;}
+.plan-hd{padding:9px 10px 7px;text-align:center;}
+.plan-icon{font-size:24px;display:block;margin-bottom:4px;}
+.plan-name{font-size:11.5px;font-weight:900;text-transform:uppercase;letter-spacing:.05em;}
+.plan-desc{font-size:7px;font-weight:500;margin-top:1px;color:#64748b;}
+.plan-price{font-size:19px;font-weight:900;margin:5px 0 1px;}
+.plan-note{font-size:6.5px;color:#94a3b8;}
+.plan-for{padding:5px 10px;border-top:1px dashed rgba(0,0,0,.1);text-align:center;}
+.pfl{font-size:6.5px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:2px;}
+.pft{font-size:7px;line-height:1.55;color:#475569;}
+.plan-feats{padding:5px 10px 9px;}
+.pfhl{font-size:6.5px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px;}
 .feat{display:flex;align-items:flex-start;gap:4px;margin-bottom:2.5px;}
-.fdot{width:11px;height:11px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:6.5px;color:#fff;flex-shrink:0;margin-top:.5px;}
+.fdot{width:12px;height:12px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:7px;color:#fff;flex-shrink:0;margin-top:.5px;}
 .ftxt{font-size:7px;color:#334155;line-height:1.4;}
 
-/* plan colors */
-.s1 .plan-hd{background:linear-gradient(135deg,#f0f9ff,#dbeafe);}
-.s1 .plan-name{color:#1d4ed8;} .s1 .plan-price{color:#1d4ed8;} .s1 .pf-lbl{color:#1d4ed8;} .s1 .pfl{color:#1d4ed8;} .s1 .fdot{background:#3b82f6;}
+/* plan colours */
+.s1 .plan-hd{background:linear-gradient(135deg,#eff6ff,#dbeafe);}
+.s1 .plan-name{color:#1d4ed8;} .s1 .plan-price{color:#1d4ed8;} .s1 .pfl{color:#1d4ed8;} .s1 .pfhl{color:#1d4ed8;} .s1 .fdot{background:#3b82f6;}
 
 .s2 .plan-hd{background:linear-gradient(135deg,#f0fdf4,#dcfce7);}
-.s2 .plan-name{color:#15803d;} .s2 .plan-price{color:#15803d;} .s2 .pf-lbl{color:#15803d;} .s2 .pfl{color:#15803d;} .s2 .fdot{background:#10b981;}
+.s2 .plan-name{color:#15803d;} .s2 .plan-price{color:#15803d;} .s2 .pfl{color:#15803d;} .s2 .pfhl{color:#15803d;} .s2 .fdot{background:#10b981;}
 
 .s3 .plan-hd{background:linear-gradient(135deg,#faf5ff,#ede9fe);}
-.s3 .plan-name{color:#7c3aed;} .s3 .plan-price{color:#7c3aed;} .s3 .pf-lbl{color:#7c3aed;} .s3 .pfl{color:#7c3aed;} .s3 .fdot{background:#7c3aed;}
+.s3 .plan-name{color:#7c3aed;} .s3 .plan-price{color:#7c3aed;} .s3 .pfl{color:#7c3aed;} .s3 .pfhl{color:#7c3aed;} .s3 .fdot{background:#7c3aed;}
 
 .s4 .plan-hd{background:linear-gradient(135deg,#0a1628,#1e3a8a);}
-.s4 .plan-name{color:#93c5fd;} .s4 .plan-price{color:#60a5fa;} .s4 .plan-desc{color:rgba(255,255,255,.5);}
-.s4 .plan-note{color:rgba(255,255,255,.45);} .s4 .pf-lbl{color:#93c5fd;} .s4 .pfl{color:#93c5fd;} .s4 .fdot{background:#60a5fa;}
-.s4 .plan-for{border-color:rgba(255,255,255,.12);background:#0f172a;} .s4 .pf-txt{color:rgba(255,255,255,.5);}
-.s4 .plan-feats{background:#0f172a;} .s4 .ftxt{color:rgba(255,255,255,.72);}
+.s4 .plan-name{color:#93c5fd;} .s4 .plan-price{color:#60a5fa;}
+.s4 .plan-desc{color:rgba(255,255,255,.4);} .s4 .plan-note{color:rgba(255,255,255,.35);}
+.s4 .plan-for{border-color:rgba(255,255,255,.12);background:#0f172a;}
+.s4 .pfl{color:#93c5fd;} .s4 .pft{color:rgba(255,255,255,.45);}
+.s4 .plan-feats{background:#0f172a;} .s4 .pfhl{color:#93c5fd;} .s4 .ftxt{color:rgba(255,255,255,.7);}
+.s4 .fdot{background:#60a5fa;}
 
-/* ADDL SERVICES */
-.addl-wrap{padding:0 8mm 3mm;flex-shrink:0;}
-.addl-label{font-size:7.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#7c3aed;margin-bottom:2.5mm;}
-.addl-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:3.5mm;}
-.addl-card{border-radius:9px;border:1.5px solid #e2e8f0;padding:7px 7px 8px;text-align:center;box-shadow:0 1px 6px rgba(0,0,0,.07);}
-.addl-icon{font-size:18px;display:block;margin-bottom:4px;}
+/* ══ ADDL SERVICES ══ */
+.addl-wrap{flex-shrink:0;padding:0 8mm 3mm;}
+.addl-label{font-size:7px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#7c3aed;margin-bottom:2mm;}
+.addl-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:3mm;}
+.addl-card{border-radius:10px;border:1.5px solid #e8edf5;padding:6px 6px 7px;text-align:center;box-shadow:0 1px 6px rgba(0,0,0,.07);background:#fff;}
+.addl-icon{font-size:17px;display:block;margin-bottom:3px;}
 .addl-name{font-size:7px;font-weight:700;color:#0f172a;line-height:1.3;margin-bottom:2px;}
 .addl-price{font-size:7px;font-weight:600;color:#7c3aed;}
 
-/* NOTES */
-.notes-wrap{padding:0 8mm 3mm;flex-shrink:0;}
-.notes-box{background:linear-gradient(135deg,#fffbeb,#fef3c7);border:1.5px solid #f59e0b;border-radius:10px;padding:5mm 5mm 4.5mm;}
-.notes-title{font-size:9.5px;font-weight:800;color:#92400e;margin-bottom:3.5mm;display:flex;align-items:center;gap:6px;}
-.notes-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.5px 10px;}
-.note-item{display:flex;align-items:flex-start;gap:5px;}
-.note-num{font-size:7.5px;font-weight:700;color:#b45309;min-width:16px;}
+/* ══ NOTES ══ */
+.notes-wrap{flex-shrink:0;padding:0 8mm 3mm;}
+.notes-box{background:linear-gradient(135deg,#fffbeb,#fef9ec);border:1.5px solid #f59e0b;border-radius:11px;padding:4.5mm 5mm 4mm;}
+.notes-title{font-size:9px;font-weight:800;color:#92400e;margin-bottom:3mm;display:flex;align-items:center;gap:6px;}
+.notes-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px 10mm;}
+.note-item{display:flex;align-items:flex-start;gap:5px;padding:1.5px 0;}
+.note-num{font-size:7.5px;font-weight:700;color:#b45309;min-width:16px;flex-shrink:0;}
 .note-txt{font-size:7.5px;color:#78350f;line-height:1.5;}
 
-/* WHY + FOOTER */
-.why{background:linear-gradient(90deg,#1d4ed8,#7c3aed);padding:3.5mm 8mm;flex-shrink:0;}
-.why-lbl{color:rgba(255,255,255,.58);font-size:6.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:2mm;}
-.why-row{display:flex;gap:6px;flex-wrap:wrap;}
+/* ══ WHY US ══ */
+.why{flex-shrink:0;background:linear-gradient(135deg,#1d4ed8,#7c3aed);padding:3.5mm 8mm;}
+.why-lbl{color:rgba(255,255,255,.6);font-size:6.5px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;margin-bottom:2mm;}
+.why-row{display:flex;gap:5px;flex-wrap:wrap;}
 .wy{background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:3.5px 10px;color:#fff;font-size:7px;font-weight:600;}
 
-.ftr{background:linear-gradient(135deg,#060c1a,#0e1c3d,#170a30);padding:4mm 8mm 3mm;flex-shrink:0;}
-.frow{display:flex;align-items:center;justify-content:space-between;gap:5mm;}
-.ftitle{color:#fff;font-size:12px;font-weight:800;line-height:1.25;margin-bottom:2px;}
-.ftitle em{color:#60a5fa;font-style:normal;}
-.fsub{color:rgba(255,255,255,.38);font-size:7px;}
+/* ══ FOOTER ══ */
+.ftr{flex-shrink:0;background:linear-gradient(135deg,#060c1a,#0b1a3d,#140828);padding:3.5mm 8mm 3mm;}
+.ftr-row{display:flex;align-items:center;justify-content:space-between;gap:4mm;}
+.ftr-title{color:#fff;font-size:11.5px;font-weight:800;margin-bottom:2px;}
+.ftr-title em{color:#60a5fa;font-style:normal;}
+.ftr-sub{color:rgba(255,255,255,.38);font-size:7px;}
 .fbtns{display:flex;gap:5px;flex-shrink:0;}
-.fbtn{display:flex;align-items:center;gap:4px;padding:5px 9px;border-radius:20px;font-family:'Poppins',sans-serif;font-size:7px;font-weight:600;border:none;cursor:pointer;white-space:nowrap;}
-.fc{background:linear-gradient(135deg,#10b981,#059669);color:#fff;}
-.fe{background:#fff;color:#1e3a8a;}
-.fw{background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.25)!important;}
-.qrb{width:46px;height:46px;border-radius:8px;background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.18);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;flex-shrink:0;}
-.qrp{width:30px;height:30px;border-radius:3px;background:repeating-linear-gradient(0deg,rgba(255,255,255,.13) 0,rgba(255,255,255,.13) 2px,transparent 2px,transparent 5px),repeating-linear-gradient(90deg,rgba(255,255,255,.13) 0,rgba(255,255,255,.13) 2px,transparent 2px,transparent 5px);}
-.qrl{font-size:5.5px;color:rgba(255,255,255,.33);}
-.fcopy{border-top:1px solid rgba(255,255,255,.07);margin-top:2.5mm;padding-top:2mm;text-align:center;color:rgba(255,255,255,.18);font-size:6.5px;}
+.fb{display:flex;align-items:center;gap:4px;padding:5px 9px;border-radius:20px;font-family:'Poppins',sans-serif;font-size:7px;font-weight:600;border:none;cursor:pointer;white-space:nowrap;}
+.fbc{background:linear-gradient(135deg,#10b981,#059669);color:#fff;}
+.fbe{background:#fff;color:#1e3a8a;}
+.fbw{background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.25)!important;}
+.qr{width:44px;height:44px;border-radius:8px;background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.2);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;flex-shrink:0;}
+.qrp{width:28px;height:28px;border-radius:3px;background:repeating-linear-gradient(0deg,rgba(255,255,255,.13) 0,rgba(255,255,255,.13) 2px,transparent 2px,transparent 5px),repeating-linear-gradient(90deg,rgba(255,255,255,.13) 0,rgba(255,255,255,.13) 2px,transparent 2px,transparent 5px);}
+.qrl{font-size:5.5px;color:rgba(255,255,255,.35);}
+.ftr-copy{border-top:1px solid rgba(255,255,255,.07);margin-top:2.5mm;padding-top:2mm;text-align:center;color:rgba(255,255,255,.18);font-size:6.5px;}
+
+/* ══ BOTTOM STRIP ══ */
+.bstrip{flex-shrink:0;background:#080f20;padding:5px 8mm;display:flex;justify-content:space-around;align-items:center;}
+.bs-item{display:flex;align-items:center;gap:5px;color:rgba(255,255,255,.55);font-size:7px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;}
 </style>
 </head>
 <body>
-
 <button class="print-btn" onclick="window.print()">🖨 Print / Save as PDF</button>
 
 <div class="page">
 
-  <!-- HEADER -->
-  <div class="hdr">
-    <div class="hdr-top">
-      <div class="brand">
-        <div class="logo-ring"><img src="logo.jpeg" alt="JK" onerror="this.parentElement.style.background='linear-gradient(135deg,#3b82f6,#7c3aed)';this.style.display='none'"></div>
+  <!-- ══ HERO ══ -->
+  <div class="hero">
+    <div class="hero-left">
+      <div class="brand-row">
+        <div class="logo-wrap"><img src="logo.jpeg" alt="JK" onerror="this.parentElement.style.background='linear-gradient(135deg,#3b82f6,#7c3aed)';this.style.display='none'"></div>
         <div>
-          <div class="bname">JK <em>Cloud Technologies</em></div>
-          <div class="btag">Web &amp; Cloud Solutions · Hyderabad, India</div>
+          <div class="brand-name">JK <span>Cloud Technologies</span></div>
+          <div class="brand-sub">Innovate · Transform · Scale</div>
         </div>
       </div>
-      <div class="badge-row">
-        <div class="badge">✅ 100% Satisfaction</div>
-        <div class="badge">⚡ On-Time Delivery</div>
-        <div class="badge">📱 Mobile Responsive</div>
+      <div class="hero-label">Transparent Pricing Plans</div>
+      <div class="hero-h1">Affordable Website &amp; Software</div>
+      <div class="hero-h2">Development<br>Packages</div>
+      <div class="hero-h3">Starter · Business · Professional · Enterprise</div>
+      <div class="hero-pills">
+        <div class="hero-pill">✅ No Hidden Charges</div>
+        <div class="hero-pill">🚀 Starting ₹4,999</div>
+        <div class="hero-pill">🔒 Secure Payments</div>
       </div>
     </div>
-    <div class="hdr-h">Affordable Website &amp; Software<br><em>Development Packages</em></div>
-    <div class="hdr-s">Transparent Pricing · No Hidden Charges · Starting from ₹4,999 only</div>
+
+    <!-- Device SVG -->
+    <div class="hero-right">
+      <svg viewBox="0 0 240 160" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="sg" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#1e40af"/>
+            <stop offset="100%" stop-color="#5b21b6"/>
+          </linearGradient>
+          <linearGradient id="sg2" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#1d4ed8"/>
+            <stop offset="100%" stop-color="#4338ca"/>
+          </linearGradient>
+          <filter id="ds"><feDropShadow dx="0" dy="5" stdDeviation="6" flood-color="#00000030"/></filter>
+          <filter id="ds2"><feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#00000028"/></filter>
+        </defs>
+
+        <!-- Glows -->
+        <ellipse cx="140" cy="70" rx="95" ry="75" fill="#3b82f6" fill-opacity=".07"/>
+        <ellipse cx="200" cy="120" rx="55" ry="45" fill="#7c3aed" fill-opacity=".07"/>
+        <ellipse cx="40" cy="120" rx="48" ry="40" fill="#0ea5e9" fill-opacity=".06"/>
+
+        <!-- Dots -->
+        <circle cx="15" cy="15" r="3" fill="#3b82f6" fill-opacity=".35"/>
+        <circle cx="225" cy="12" r="2.5" fill="#7c3aed" fill-opacity=".4"/>
+        <circle cx="6" cy="90" r="3.5" fill="#0ea5e9" fill-opacity=".28"/>
+        <circle cx="234" cy="148" r="2.5" fill="#7c3aed" fill-opacity=".32"/>
+        <circle cx="175" cy="6" r="2" fill="#3b82f6" fill-opacity=".3"/>
+        <!-- Lines -->
+        <line x1="0" y1="45" x2="60" y2="68" stroke="#3b82f6" stroke-width=".6" stroke-opacity=".18" stroke-dasharray="4,3"/>
+        <line x1="175" y1="155" x2="240" y2="132" stroke="#7c3aed" stroke-width=".6" stroke-opacity=".18" stroke-dasharray="4,3"/>
+
+        <!-- MONITOR -->
+        <g filter="url(#ds)">
+          <rect x="62" y="7" width="140" height="98" rx="7" fill="#0c1a3a"/>
+          <rect x="68" y="13" width="128" height="86" rx="4" fill="url(#sg)"/>
+          <!-- Browser chrome -->
+          <rect x="68" y="13" width="128" height="12" rx="4 4 0 0" fill="rgba(0,0,0,.28)"/>
+          <circle cx="76" cy="19" r="2.8" fill="#ef4444" fill-opacity=".75"/>
+          <circle cx="84.5" cy="19" r="2.8" fill="#f59e0b" fill-opacity=".75"/>
+          <circle cx="93" cy="19" r="2.8" fill="#10b981" fill-opacity=".75"/>
+          <rect x="108" y="16" width="50" height="5" rx="2.5" fill="rgba(255,255,255,.14)"/>
+          <rect x="174" y="16" width="16" height="5" rx="2.5" fill="#60a5fa"/>
+          <!-- Pricing UI on screen -->
+          <rect x="75" y="31" width="55" height="7" rx="2" fill="rgba(255,255,255,.85)"/>
+          <rect x="75" y="41" width="40" height="4" rx="2" fill="rgba(255,255,255,.5)"/>
+          <!-- Pricing cards -->
+          <rect x="75" y="50" width="25" height="38" rx="3" fill="rgba(255,255,255,.12)" stroke="rgba(255,255,255,.2)" stroke-width=".5"/>
+          <rect x="103" y="50" width="25" height="38" rx="3" fill="rgba(99,179,237,.25)" stroke="rgba(255,255,255,.2)" stroke-width=".5"/>
+          <rect x="131" y="50" width="25" height="38" rx="3" fill="rgba(255,255,255,.12)" stroke="rgba(255,255,255,.2)" stroke-width=".5"/>
+          <rect x="159" y="50" width="25" height="38" rx="3" fill="rgba(255,255,255,.12)" stroke="rgba(255,255,255,.2)" stroke-width=".5"/>
+          <!-- Price text -->
+          <rect x="77" y="53" width="21" height="4" rx="1.5" fill="rgba(255,255,255,.6)"/>
+          <rect x="77" y="60" width="16" height="6" rx="1.5" fill="rgba(255,255,255,.8)"/>
+          <rect x="105" y="53" width="21" height="4" rx="1.5" fill="rgba(255,255,255,.7)"/>
+          <rect x="105" y="60" width="16" height="6" rx="1.5" fill="#fff"/>
+          <rect x="133" y="53" width="21" height="4" rx="1.5" fill="rgba(255,255,255,.6)"/>
+          <rect x="133" y="60" width="16" height="6" rx="1.5" fill="rgba(255,255,255,.8)"/>
+          <!-- Monitor stand -->
+          <rect x="124" y="105" width="14" height="11" fill="#1e293b"/>
+          <rect x="108" y="115" width="46" height="4" rx="2" fill="#1e293b"/>
+        </g>
+
+        <!-- LAPTOP -->
+        <g filter="url(#ds2)">
+          <rect x="3" y="84" width="82" height="54" rx="5" fill="#1a2540"/>
+          <rect x="7" y="88" width="74" height="46" rx="3" fill="url(#sg2)"/>
+          <rect x="7" y="88" width="74" height="9" rx="3 3 0 0" fill="rgba(0,0,0,.24)"/>
+          <rect x="12" y="91" width="18" height="3" rx="1.5" fill="rgba(255,255,255,.55)"/>
+          <rect x="65" y="91" width="10" height="3" rx="1.5" fill="#3b82f6"/>
+          <rect x="12" y="103" width="52" height="5" rx="2" fill="rgba(255,255,255,.75)"/>
+          <rect x="12" y="111" width="36" height="3.5" rx="1.75" fill="rgba(255,255,255,.5)"/>
+          <rect x="12" y="117" width="20" height="6" rx="3" fill="#60a5fa"/>
+          <rect x="52" y="101" width="22" height="24" rx="3" fill="rgba(255,255,255,.1)"/>
+          <text x="63" y="116" font-size="9" text-anchor="middle" fill="rgba(255,255,255,.6)">💰</text>
+          <rect x="0" y="138" width="88" height="6" rx="3" fill="#1a2540"/>
+          <rect x="30" y="141" width="22" height="1.5" rx=".75" fill="rgba(255,255,255,.15)"/>
+          <rect x="-3" y="143" width="94" height="4" rx="2" fill="#0f172a"/>
+        </g>
+
+        <!-- PHONE -->
+        <g filter="url(#ds2)">
+          <rect x="204" y="65" width="34" height="68" rx="7" fill="#0c1a3a"/>
+          <rect x="208" y="71" width="26" height="57" rx="4" fill="url(#sg)"/>
+          <rect x="215" y="67" width="12" height="4" rx="2" fill="#0c1a3a"/>
+          <rect x="212" y="77" width="18" height="3.5" rx="1.75" fill="rgba(255,255,255,.65)"/>
+          <rect x="212" y="84" width="18" height="13" rx="2.5" fill="rgba(255,255,255,.12)"/>
+          <rect x="214" y="87" width="12" height="2.5" rx="1.25" fill="rgba(255,255,255,.7)"/>
+          <rect x="214" y="92" width="8" height="2.5" rx="1.25" fill="rgba(255,255,255,.5)"/>
+          <rect x="212" y="100" width="18" height="8" rx="2" fill="rgba(255,255,255,.1)"/>
+          <text x="221" y="108" font-size="6" text-anchor="middle" fill="rgba(255,255,255,.65)">₹</text>
+          <rect x="212" y="111" width="18" height="8" rx="2" fill="rgba(255,255,255,.1)"/>
+          <text x="221" y="119" font-size="6" text-anchor="middle" fill="rgba(255,255,255,.65)">📊</text>
+          <rect x="216" y="126" width="10" height="1.5" rx=".75" fill="rgba(255,255,255,.35)"/>
+        </g>
+
+        <!-- Floating badges -->
+        <g>
+          <rect x="42" y="142" width="62" height="15" rx="7.5" fill="#fff" stroke="#dbeafe" stroke-width="1.5"/>
+          <text x="73" y="153" font-size="6" text-anchor="middle" fill="#1d4ed8" font-weight="bold" font-family="Poppins,sans-serif">💰 No Hidden Fees</text>
+        </g>
+        <g>
+          <rect x="150" y="144" width="56" height="15" rx="7.5" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.5"/>
+          <text x="178" y="155" font-size="6" text-anchor="middle" fill="#15803d" font-weight="bold" font-family="Poppins,sans-serif">⚡ Fast Delivery</text>
+        </g>
+        <g>
+          <rect x="4" y="52" width="46" height="15" rx="7.5" fill="#faf5ff" stroke="#ddd6fe" stroke-width="1.5"/>
+          <text x="27" y="63" font-size="6" text-anchor="middle" fill="#7c3aed" font-weight="bold" font-family="Poppins,sans-serif">🔒 Secure</text>
+        </g>
+      </svg>
+    </div>
   </div>
 
-  <!-- PRICING -->
+  <!-- ══ TAGLINE BAR ══ -->
+  <div class="tagbar">
+    <span class="tagbar-text">⚡ Powerful Websites · Smart Solutions · Real Results &nbsp;|&nbsp; Starting from ₹4,999 only</span>
+    <div class="tagbar-badge">✅ 100% Satisfaction Guaranteed</div>
+  </div>
+
+  <!-- ══ PRICING ══ -->
   <div class="pricing-wrap">
-    <div class="eyebrow">Choose Your Plan</div>
-    <div class="sec-h">Website Development Packages</div>
+    <div class="sec-eye">Choose Your Plan</div>
+    <div class="sec-title">Website Development Packages</div>
     <div class="plans">
 
       <div class="plan s1">
@@ -160,17 +298,16 @@ body{font-family:'Poppins',sans-serif;background:#d4dbe8;-webkit-print-color-adj
           <div class="plan-note">onwards*</div>
         </div>
         <div class="plan-for">
-          <div class="pf-lbl">Perfect For</div>
-          <div class="pf-txt">Startups · Campaigns<br>Events · Personal Brands</div>
+          <div class="pfl">Perfect For</div>
+          <div class="pft">Startups · Campaigns<br>Events · Personal Brands</div>
         </div>
         <div class="plan-feats">
-          <div class="pfl">Includes</div>
+          <div class="pfhl">Includes</div>
           <div class="feat"><div class="fdot">✓</div><div class="ftxt">Responsive Design</div></div>
           <div class="feat"><div class="fdot">✓</div><div class="ftxt">Contact Form</div></div>
           <div class="feat"><div class="fdot">✓</div><div class="ftxt">Basic SEO Setup</div></div>
           <div class="feat"><div class="fdot">✓</div><div class="ftxt">WhatsApp Button</div></div>
           <div class="feat"><div class="fdot">✓</div><div class="ftxt">Mobile Friendly</div></div>
-          <div class="feat"><div class="fdot">✓</div><div class="ftxt">1 Revision</div></div>
           <div class="feat"><div class="fdot">✓</div><div class="ftxt">15 Days Support</div></div>
         </div>
       </div>
@@ -184,17 +321,16 @@ body{font-family:'Poppins',sans-serif;background:#d4dbe8;-webkit-print-color-adj
           <div class="plan-note">onwards*</div>
         </div>
         <div class="plan-for">
-          <div class="pf-lbl">Perfect For</div>
-          <div class="pf-txt">Small Businesses<br>Local Brands · Freelancers</div>
+          <div class="pfl">Perfect For</div>
+          <div class="pft">Small Businesses<br>Local Brands · Freelancers</div>
         </div>
         <div class="plan-feats">
-          <div class="pfl">Includes</div>
+          <div class="pfhl">Includes</div>
           <div class="feat"><div class="fdot">✓</div><div class="ftxt">Up to 5 Pages</div></div>
           <div class="feat"><div class="fdot">✓</div><div class="ftxt">Admin Panel</div></div>
           <div class="feat"><div class="fdot">✓</div><div class="ftxt">Gallery Section</div></div>
           <div class="feat"><div class="fdot">✓</div><div class="ftxt">SEO Setup</div></div>
           <div class="feat"><div class="fdot">✓</div><div class="ftxt">WhatsApp Integration</div></div>
-          <div class="feat"><div class="fdot">✓</div><div class="ftxt">Google Map</div></div>
           <div class="feat"><div class="fdot">✓</div><div class="ftxt">1 Month Support</div></div>
         </div>
       </div>
@@ -209,16 +345,15 @@ body{font-family:'Poppins',sans-serif;background:#d4dbe8;-webkit-print-color-adj
           <div class="plan-note">onwards*</div>
         </div>
         <div class="plan-for">
-          <div class="pf-lbl">Perfect For</div>
-          <div class="pf-txt">Growing Businesses<br>Agencies · Consultants</div>
+          <div class="pfl">Perfect For</div>
+          <div class="pft">Growing Businesses<br>Agencies · Consultants</div>
         </div>
         <div class="plan-feats">
-          <div class="pfl">Includes</div>
-          <div class="feat"><div class="fdot">✓</div><div class="ftxt">Authentication System</div></div>
+          <div class="pfhl">Includes</div>
+          <div class="feat"><div class="fdot">✓</div><div class="ftxt">Authentication</div></div>
           <div class="feat"><div class="fdot">✓</div><div class="ftxt">Dashboard / CMS</div></div>
           <div class="feat"><div class="fdot">✓</div><div class="ftxt">Database Integration</div></div>
           <div class="feat"><div class="fdot">✓</div><div class="ftxt">API Integration</div></div>
-          <div class="feat"><div class="fdot">✓</div><div class="ftxt">Performance Optimization</div></div>
           <div class="feat"><div class="fdot">✓</div><div class="ftxt">Advanced SEO</div></div>
           <div class="feat"><div class="fdot">✓</div><div class="ftxt">2 Months Support</div></div>
         </div>
@@ -233,14 +368,13 @@ body{font-family:'Poppins',sans-serif;background:#d4dbe8;-webkit-print-color-adj
           <div class="plan-note">onwards*</div>
         </div>
         <div class="plan-for">
-          <div class="pf-lbl">Perfect For</div>
-          <div class="pf-txt" style="color:rgba(255,255,255,.5);">Enterprises · SaaS<br>Multi-Branch Businesses</div>
+          <div class="pfl">Perfect For</div>
+          <div class="pft" style="color:rgba(255,255,255,.45);">Enterprises · SaaS<br>Multi-Branch Businesses</div>
         </div>
         <div class="plan-feats">
-          <div class="pfl">Includes</div>
+          <div class="pfhl">Includes</div>
           <div class="feat"><div class="fdot">✓</div><div class="ftxt">AI Features</div></div>
           <div class="feat"><div class="fdot">✓</div><div class="ftxt">Cloud Deployment</div></div>
-          <div class="feat"><div class="fdot">✓</div><div class="ftxt">Admin Panel</div></div>
           <div class="feat"><div class="fdot">✓</div><div class="ftxt">Analytics Dashboard</div></div>
           <div class="feat"><div class="fdot">✓</div><div class="ftxt">CRM Integration</div></div>
           <div class="feat"><div class="fdot">✓</div><div class="ftxt">Payment Gateway</div></div>
@@ -251,44 +385,20 @@ body{font-family:'Poppins',sans-serif;background:#d4dbe8;-webkit-print-color-adj
     </div>
   </div>
 
-  <!-- ADDITIONAL SERVICES -->
+  <!-- ══ ADDITIONAL SERVICES ══ -->
   <div class="addl-wrap">
     <div class="addl-label">Additional Services — Available as Add-Ons</div>
     <div class="addl-grid">
-      <div class="addl-card">
-        <span class="addl-icon">🤖</span>
-        <div class="addl-name">AI Chatbot</div>
-        <div class="addl-price">₹7,999+*</div>
-      </div>
-      <div class="addl-card">
-        <span class="addl-icon">📱</span>
-        <div class="addl-name">Mobile App</div>
-        <div class="addl-price">₹24,999+*</div>
-      </div>
-      <div class="addl-card">
-        <span class="addl-icon">🔧</span>
-        <div class="addl-name">Maintenance</div>
-        <div class="addl-price">₹2,999/mo*</div>
-      </div>
-      <div class="addl-card">
-        <span class="addl-icon">🔍</span>
-        <div class="addl-name">SEO Services</div>
-        <div class="addl-price">₹4,999/mo*</div>
-      </div>
-      <div class="addl-card">
-        <span class="addl-icon">☁️</span>
-        <div class="addl-name">Cloud Deploy</div>
-        <div class="addl-price">₹4,999+*</div>
-      </div>
-      <div class="addl-card">
-        <span class="addl-icon">🎨</span>
-        <div class="addl-name">Logo &amp; Branding</div>
-        <div class="addl-price">₹2,999+*</div>
-      </div>
+      <div class="addl-card"><span class="addl-icon">🤖</span><div class="addl-name">AI Chatbot</div><div class="addl-price">₹7,999+*</div></div>
+      <div class="addl-card"><span class="addl-icon">📱</span><div class="addl-name">Mobile App</div><div class="addl-price">₹24,999+*</div></div>
+      <div class="addl-card"><span class="addl-icon">🔧</span><div class="addl-name">Maintenance</div><div class="addl-price">₹2,999/mo*</div></div>
+      <div class="addl-card"><span class="addl-icon">🔍</span><div class="addl-name">SEO Services</div><div class="addl-price">₹4,999/mo*</div></div>
+      <div class="addl-card"><span class="addl-icon">☁️</span><div class="addl-name">Cloud Deploy</div><div class="addl-price">₹4,999+*</div></div>
+      <div class="addl-card"><span class="addl-icon">🎨</span><div class="addl-name">Logo &amp; Branding</div><div class="addl-price">₹2,999+*</div></div>
     </div>
   </div>
 
-  <!-- IMPORTANT NOTES -->
+  <!-- ══ NOTES ══ -->
   <div class="notes-wrap">
     <div class="notes-box">
       <div class="notes-title">⚠️ Conditions Apply — Important Notes</div>
@@ -299,15 +409,15 @@ body{font-family:'Poppins',sans-serif;background:#d4dbe8;-webkit-print-color-adj
         <div class="note-item"><span class="note-num">07.</span><span class="note-txt">Remaining 50% payment due before final deployment.</span></div>
         <div class="note-item"><span class="note-num">03.</span><span class="note-txt">Custom features beyond the plan incur additional charges.</span></div>
         <div class="note-item"><span class="note-num">08.</span><span class="note-txt">One month of free support included unless otherwise agreed.</span></div>
-        <div class="note-item"><span class="note-num">04.</span><span class="note-txt">Domain &amp; hosting charges may be separate unless specified.</span></div>
+        <div class="note-item"><span class="note-num">04.</span><span class="note-txt">Domain &amp; hosting may be separate unless specified in quote.</span></div>
         <div class="note-item"><span class="note-num">09.</span><span class="note-txt">GST (18%) applicable where required by Government norms.</span></div>
-        <div class="note-item"><span class="note-num">05.</span><span class="note-txt">Delivery timeline depends on project complexity &amp; feedback speed.</span></div>
-        <div class="note-item"><span class="note-num">10.</span><span class="note-txt">Prices subject to change — contact us for confirmed quotation.</span></div>
+        <div class="note-item"><span class="note-num">05.</span><span class="note-txt">Delivery timeline depends on project complexity &amp; feedback.</span></div>
+        <div class="note-item"><span class="note-num">10.</span><span class="note-txt">Prices subject to change — contact us for confirmed quote.</span></div>
       </div>
     </div>
   </div>
 
-  <!-- WHY CHOOSE -->
+  <!-- ══ WHY US ══ -->
   <div class="why">
     <div class="why-lbl">Why Clients Choose JK Cloud Technologies</div>
     <div class="why-row">
@@ -321,21 +431,29 @@ body{font-family:'Poppins',sans-serif;background:#d4dbe8;-webkit-print-color-adj
     </div>
   </div>
 
-  <!-- FOOTER -->
+  <!-- ══ FOOTER ══ -->
   <div class="ftr">
-    <div class="frow">
+    <div class="ftr-row">
       <div>
-        <div class="ftitle">Ready to Start Your <em>Dream Project?</em></div>
-        <div class="fsub">Contact JK Cloud Technologies today for a free consultation!</div>
+        <div class="ftr-title">Ready to Start Your <em>Dream Project?</em></div>
+        <div class="ftr-sub">Contact us today for a free consultation. Response within 2 hours.</div>
       </div>
       <div class="fbtns">
-        <button class="fbtn fc">📞 +91 6304190711</button>
-        <button class="fbtn fe">📧 info@jkcloudtech.com</button>
-        <button class="fbtn fw">🌐 j-kcloud-technologies.vercel.app</button>
+        <button class="fb fbc">📞 +91 6304190711</button>
+        <button class="fb fbe">📧 info@jkcloudtech.com</button>
+        <button class="fb fbw">🌐 j-kcloud-technologies.vercel.app</button>
       </div>
-      <div class="qrb"><div class="qrp"></div><div class="qrl">Scan QR</div></div>
+      <div class="qr"><div class="qrp"></div><div class="qrl">Scan QR</div></div>
     </div>
-    <div class="fcopy">© 2025 JK Cloud Technologies. All Rights Reserved. | Hyderabad, Telangana, India | *Prices are starting estimates. Final price based on actual requirements.</div>
+    <div class="ftr-copy">© 2025 JK Cloud Technologies. All Rights Reserved. | Hyderabad, Telangana, India | *Prices are starting estimates. Final price based on actual requirements.</div>
+  </div>
+
+  <!-- ══ BOTTOM STRIP ══ -->
+  <div class="bstrip">
+    <div class="bs-item">💻 100% Custom Solutions</div>
+    <div class="bs-item">📱 Mobile Responsive</div>
+    <div class="bs-item">📈 SEO Friendly</div>
+    <div class="bs-item">🔒 Secure &amp; Reliable</div>
   </div>
 
 </div>
